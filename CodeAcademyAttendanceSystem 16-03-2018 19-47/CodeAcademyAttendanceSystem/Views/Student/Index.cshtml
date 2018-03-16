@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+	<div class="col-md-4 col-md-push-4">
+		<form action="@Url.Action("Index", "Student")" method="post">
+			<div class="form-group">
+				<label for="email">E-mail Ünvanı:</label>
+				<input type="email" class="form-control" name="student_email">
+			</div>
+			<div class="form-group">
+				<label for="pwd">Şifrə:</label>
+				<input type="password" class="form-control" name="student_password">
+			</div>
+			<button type="submit" class="btn btn-default">Daxil ol</button>
+		</form>
+	</div>
+</div>
+

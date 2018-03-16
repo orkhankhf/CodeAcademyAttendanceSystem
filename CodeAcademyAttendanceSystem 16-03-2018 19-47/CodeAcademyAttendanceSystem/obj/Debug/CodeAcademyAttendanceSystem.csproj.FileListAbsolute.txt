@@ -1,0 +1,165 @@
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\ApplicationInsights.config
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\CodeAcademyAttendanceSystem.dll.config
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\CodeAcademyAttendanceSystem.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\CodeAcademyAttendanceSystem.pdb
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Antlr3.Runtime.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.Web.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.ApplicationInsights.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Newtonsoft.Json.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Helpers.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Mvc.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Optimization.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Razor.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.Deployment.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.Razor.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\WebGrease.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Helpers.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Mvc.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Optimization.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Razor.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.Deployment.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.Razor.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Antlr3.Runtime.pdb
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Newtonsoft.Json.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.ApplicationInsights.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.Web.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\obj\Debug\CodeAcademyAttendanceSystem.csprojResolveAssemblyReference.cache
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\obj\Debug\CodeAcademyAttendanceSystem.csproj.CoreCompileInputs.cache
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\obj\Debug\CodeAcademyAttendanceSystem.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\obj\Debug\CodeAcademyAttendanceSystem.pdb
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\QRCoder.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\UnityEngine.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\ZKWeb.System.Drawing.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\zxing.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\zxing.presentation.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\zxing.pdb
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\zxing.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\zxing.presentation.pdb
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\zxing.presentation.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\EntityFramework.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\EntityFramework.SqlServer.dll
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\EntityFramework.xml
+C:\Users\QONAQ\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\ApplicationInsights.config
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\CodeAcademyAttendanceSystem.dll.config
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\CodeAcademyAttendanceSystem.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\CodeAcademyAttendanceSystem.pdb
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Antlr3.Runtime.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\EntityFramework.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.Web.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\QRCoder.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Helpers.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Mvc.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Optimization.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Razor.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.Razor.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\UnityEngine.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\WebGrease.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\ZKWeb.System.Drawing.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\zxing.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\zxing.presentation.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\EntityFramework.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Helpers.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Mvc.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Optimization.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.Razor.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.Razor.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Antlr3.Runtime.pdb
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\zxing.pdb
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\zxing.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\zxing.presentation.pdb
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\zxing.presentation.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\bin\Microsoft.AI.Web.xml
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\obj\Debug\CodeAcademyAttendanceSystem.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\obj\Debug\CodeAcademyAttendanceSystem.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\obj\Debug\CodeAcademyAttendanceSystem.dll
+C:\Users\Administrator\Desktop\CodeAcademyAttendanceSystem\CodeAcademyAttendanceSystem\obj\Debug\CodeAcademyAttendanceSystem.pdb
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\ApplicationInsights.config
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\CodeAcademyAttendanceSystem.dll.config
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\CodeAcademyAttendanceSystem.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\CodeAcademyAttendanceSystem.pdb
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Antlr3.Runtime.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\EntityFramework.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\EntityFramework.SqlServer.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.AI.Web.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Newtonsoft.Json.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\QRCoder.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.Helpers.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.Mvc.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.Optimization.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.Razor.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.Razor.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\UnityEngine.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\WebGrease.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\ZKWeb.System.Drawing.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\zxing.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\zxing.presentation.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\EntityFramework.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\EntityFramework.SqlServer.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.Helpers.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.Mvc.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.Optimization.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.Razor.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\System.Web.WebPages.Razor.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Antlr3.Runtime.pdb
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\zxing.pdb
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\zxing.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\zxing.presentation.pdb
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\zxing.presentation.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Newtonsoft.Json.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\bin\Microsoft.AI.Web.xml
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\obj\Debug\CodeAcademyAttendanceSystem.csprojResolveAssemblyReference.cache
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\obj\Debug\CodeAcademyAttendanceSystem.csproj.CoreCompileInputs.cache
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\obj\Debug\CodeAcademyAttendanceSystem.dll
+C:\Users\Gamer\Desktop\C# Codes\2018\3. March\09-03-2018\CodeAcademyAttendanceSystem 09-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\obj\Debug\CodeAcademyAttendanceSystem.pdb
