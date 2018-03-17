@@ -20,7 +20,6 @@ namespace CodeAcademyAttendanceSystem.Controllers
         public ActionResult Index()
         {
             return View();
-            fff
         }
 
         public ActionResult Generate()
