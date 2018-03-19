@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Gamer\Desktop\C# Codes\2018\3. March\15-03-2018\CodeAcademyAttendanceSystem 15-03-2018 21-17 (Azuredeki)\CodeAcademyAttendanceSystem\Models\CodeAcademyAttendanceSystem_db_Model.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Developer\Desktop\master\CodeAcademyAttendanceSystem 16-03-2018 19-47\CodeAcademyAttendanceSystem\Models\CodeAcademyAttendanceSystem_db_Model.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

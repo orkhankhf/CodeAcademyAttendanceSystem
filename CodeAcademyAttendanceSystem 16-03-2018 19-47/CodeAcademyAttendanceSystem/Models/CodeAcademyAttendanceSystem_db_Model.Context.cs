@@ -34,9 +34,7 @@ namespace CodeAcademyAttendanceSystem.Models
         public virtual DbSet<Role_Types> Role_Types { get; set; }
         public virtual DbSet<Students> Students { get; set; }
         public virtual DbSet<Students_Attendance> Students_Attendance { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<System_Settings> System_Settings { get; set; }
-        public virtual DbSet<Teacher_Roles> Teacher_Roles { get; set; }
         public virtual DbSet<Teachers> Teachers { get; set; }
     }
 }

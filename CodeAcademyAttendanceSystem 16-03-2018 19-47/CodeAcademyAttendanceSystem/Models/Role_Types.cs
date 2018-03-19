@@ -17,13 +17,13 @@ namespace CodeAcademyAttendanceSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Role_Types()
         {
-            this.Teacher_Roles = new HashSet<Teacher_Roles>();
+            this.Teachers = new HashSet<Teachers>();
         }
     
         public int role_types_id { get; set; }
         public string role_types_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Teacher_Roles> Teacher_Roles { get; set; }
+        public virtual ICollection<Teachers> Teachers { get; set; }
     }
 }

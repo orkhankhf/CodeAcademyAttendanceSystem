@@ -1,0 +1,10 @@
+﻿/* common classes */
+.color_white{
+    color: white;
+}
+
+
+/* Login > SetNewPassword (View) */
+.set_password_form{
+    border: 0px !important;
+}

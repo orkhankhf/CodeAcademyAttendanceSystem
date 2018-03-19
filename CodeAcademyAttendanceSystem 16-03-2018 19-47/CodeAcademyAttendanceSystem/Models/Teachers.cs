@@ -18,7 +18,6 @@ namespace CodeAcademyAttendanceSystem.Models
         public Teachers()
         {
             this.Groups = new HashSet<Groups>();
-            this.Teacher_Roles = new HashSet<Teacher_Roles>();
         }
     
         public int teacher_id { get; set; }
@@ -29,11 +28,12 @@ namespace CodeAcademyAttendanceSystem.Models
         public string teacher_phone { get; set; }
         public string teacher_photo { get; set; }
         public Nullable<int> teacher_gender_id { get; set; }
+        public Nullable<int> teacher_role_types_id { get; set; }
+        public Nullable<bool> teacher_first_login { get; set; }
     
         public virtual Genders Genders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Groups> Groups { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Teacher_Roles> Teacher_Roles { get; set; }
+        public virtual Role_Types Role_Types { get; set; }
     }
 }

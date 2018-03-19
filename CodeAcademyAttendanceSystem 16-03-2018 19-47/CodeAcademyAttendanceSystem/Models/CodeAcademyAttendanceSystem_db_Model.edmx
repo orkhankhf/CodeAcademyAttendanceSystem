@@ -93,16 +93,6 @@
           <Property Name="students_attendance_sender_ip" Type="nvarchar" MaxLength="20" />
           <Property Name="students_attendance_student_id" Type="int" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="System_Settings">
           <Key>
             <PropertyRef Name="system_settings_id" />
@@ -111,26 +101,20 @@
           <Property Name="system_settings_academy_ip" Type="nvarchar" MaxLength="15" />
           <Property Name="system_settings_qr_code_available_minute" Type="int" />
         </EntityType>
-        <EntityType Name="Teacher_Roles">
-          <Key>
-            <PropertyRef Name="teacher_roles_id" />
-          </Key>
-          <Property Name="teacher_roles_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="teacher_roles_teacher_id" Type="int" />
-          <Property Name="teacher_roles_role_types_id" Type="int" />
-        </EntityType>
         <EntityType Name="Teachers">
           <Key>
             <PropertyRef Name="teacher_id" />
           </Key>
           <Property Name="teacher_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="teacher_email" Type="nvarchar" MaxLength="150" />
-          <Property Name="teacher_password" Type="nvarchar" MaxLength="35" />
+          <Property Name="teacher_password" Type="nvarchar" MaxLength="75" />
           <Property Name="teacher_name" Type="nvarchar" MaxLength="50" />
           <Property Name="teacher_surname" Type="nvarchar" MaxLength="50" />
           <Property Name="teacher_phone" Type="nvarchar" MaxLength="15" />
           <Property Name="teacher_photo" Type="nvarchar" MaxLength="20" />
           <Property Name="teacher_gender_id" Type="int" />
+          <Property Name="teacher_role_types_id" Type="int" />
+          <Property Name="teacher_first_login" Type="bit" />
         </EntityType>
         <Association Name="FK_Groups_to_Group_Types">
           <End Role="Group_Types" Type="Self.Group_Types" Multiplicity="0..1" />
@@ -228,30 +212,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Teacher_Roles_to_Role_Types">
-          <End Role="Role_Types" Type="Self.Role_Types" Multiplicity="0..1" />
-          <End Role="Teacher_Roles" Type="Self.Teacher_Roles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role_Types">
-              <PropertyRef Name="role_types_id" />
-            </Principal>
-            <Dependent Role="Teacher_Roles">
-              <PropertyRef Name="teacher_roles_role_types_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Teacher_Roles_to_Teachers">
-          <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
-          <End Role="Teacher_Roles" Type="Self.Teacher_Roles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teachers">
-              <PropertyRef Name="teacher_id" />
-            </Principal>
-            <Dependent Role="Teacher_Roles">
-              <PropertyRef Name="teacher_roles_teacher_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Teachers_to_Genders">
           <End Role="Genders" Type="Self.Genders" Multiplicity="0..1" />
           <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
@@ -261,6 +221,18 @@
             </Principal>
             <Dependent Role="Teachers">
               <PropertyRef Name="teacher_gender_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_to_Role_Types">
+          <End Role="Role_Types" Type="Self.Role_Types" Multiplicity="0..1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role_Types">
+              <PropertyRef Name="role_types_id" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="teacher_role_types_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -274,9 +246,7 @@
           <EntitySet Name="Role_Types" EntityType="Self.Role_Types" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students_Attendance" EntityType="Self.Students_Attendance" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="System_Settings" EntityType="Self.System_Settings" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Teacher_Roles" EntityType="Self.Teacher_Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Groups_to_Group_Types" Association="Self.FK_Groups_to_Group_Types">
             <End Role="Group_Types" EntitySet="Group_Types" />
@@ -310,16 +280,12 @@
             <End Role="Groups" EntitySet="Groups" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Teacher_Roles_to_Role_Types" Association="Self.FK_Teacher_Roles_to_Role_Types">
-            <End Role="Role_Types" EntitySet="Role_Types" />
-            <End Role="Teacher_Roles" EntitySet="Teacher_Roles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Teacher_Roles_to_Teachers" Association="Self.FK_Teacher_Roles_to_Teachers">
-            <End Role="Teachers" EntitySet="Teachers" />
-            <End Role="Teacher_Roles" EntitySet="Teacher_Roles" />
-          </AssociationSet>
           <AssociationSet Name="FK_Teachers_to_Genders" Association="Self.FK_Teachers_to_Genders">
             <End Role="Genders" EntitySet="Genders" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_to_Role_Types" Association="Self.FK_Teachers_to_Role_Types">
+            <End Role="Role_Types" EntitySet="Role_Types" />
             <End Role="Teachers" EntitySet="Teachers" />
           </AssociationSet>
         </EntityContainer>
@@ -337,9 +303,7 @@
           <EntitySet Name="Role_Types" EntityType="CodeAcademyAttendanceSystem_dbModel.Role_Types" />
           <EntitySet Name="Students" EntityType="CodeAcademyAttendanceSystem_dbModel.Students" />
           <EntitySet Name="Students_Attendance" EntityType="CodeAcademyAttendanceSystem_dbModel.Students_Attendance" />
-          <EntitySet Name="sysdiagrams" EntityType="CodeAcademyAttendanceSystem_dbModel.sysdiagrams" />
           <EntitySet Name="System_Settings" EntityType="CodeAcademyAttendanceSystem_dbModel.System_Settings" />
-          <EntitySet Name="Teacher_Roles" EntityType="CodeAcademyAttendanceSystem_dbModel.Teacher_Roles" />
           <EntitySet Name="Teachers" EntityType="CodeAcademyAttendanceSystem_dbModel.Teachers" />
           <AssociationSet Name="FK_Students_to_Genders" Association="CodeAcademyAttendanceSystem_dbModel.FK_Students_to_Genders">
             <End Role="Genders" EntitySet="Genders" />
@@ -373,17 +337,13 @@
             <End Role="Groups" EntitySet="Groups" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
-          <AssociationSet Name="FK_Teacher_Roles_to_Role_Types" Association="CodeAcademyAttendanceSystem_dbModel.FK_Teacher_Roles_to_Role_Types">
+          <AssociationSet Name="FK_Teachers_to_Role_Types" Association="CodeAcademyAttendanceSystem_dbModel.FK_Teachers_to_Role_Types">
             <End Role="Role_Types" EntitySet="Role_Types" />
-            <End Role="Teacher_Roles" EntitySet="Teacher_Roles" />
+            <End Role="Teachers" EntitySet="Teachers" />
           </AssociationSet>
           <AssociationSet Name="FK_Students_Attendance_to_Students" Association="CodeAcademyAttendanceSystem_dbModel.FK_Students_Attendance_to_Students">
             <End Role="Students" EntitySet="Students" />
             <End Role="Students_Attendance" EntitySet="Students_Attendance" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Teacher_Roles_to_Teachers" Association="CodeAcademyAttendanceSystem_dbModel.FK_Teacher_Roles_to_Teachers">
-            <End Role="Teachers" EntitySet="Teachers" />
-            <End Role="Teacher_Roles" EntitySet="Teacher_Roles" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Genders">
@@ -458,7 +418,7 @@
           </Key>
           <Property Name="role_types_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="role_types_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Teacher_Roles" Relationship="CodeAcademyAttendanceSystem_dbModel.FK_Teacher_Roles_to_Role_Types" FromRole="Role_Types" ToRole="Teacher_Roles" />
+          <NavigationProperty Name="Teachers" Relationship="CodeAcademyAttendanceSystem_dbModel.FK_Teachers_to_Role_Types" FromRole="Role_Types" ToRole="Teachers" />
         </EntityType>
         <EntityType Name="Students">
           <Key>
@@ -491,16 +451,6 @@
           <Property Name="students_attendance_student_id" Type="Int32" />
           <NavigationProperty Name="Students" Relationship="CodeAcademyAttendanceSystem_dbModel.FK_Students_Attendance_to_Students" FromRole="Students_Attendance" ToRole="Students" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="System_Settings">
           <Key>
             <PropertyRef Name="system_settings_id" />
@@ -509,31 +459,23 @@
           <Property Name="system_settings_academy_ip" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="system_settings_qr_code_available_minute" Type="Int32" />
         </EntityType>
-        <EntityType Name="Teacher_Roles">
-          <Key>
-            <PropertyRef Name="teacher_roles_id" />
-          </Key>
-          <Property Name="teacher_roles_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="teacher_roles_teacher_id" Type="Int32" />
-          <Property Name="teacher_roles_role_types_id" Type="Int32" />
-          <NavigationProperty Name="Role_Types" Relationship="CodeAcademyAttendanceSystem_dbModel.FK_Teacher_Roles_to_Role_Types" FromRole="Teacher_Roles" ToRole="Role_Types" />
-          <NavigationProperty Name="Teachers" Relationship="CodeAcademyAttendanceSystem_dbModel.FK_Teacher_Roles_to_Teachers" FromRole="Teacher_Roles" ToRole="Teachers" />
-        </EntityType>
         <EntityType Name="Teachers">
           <Key>
             <PropertyRef Name="teacher_id" />
           </Key>
           <Property Name="teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="teacher_email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="teacher_password" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="teacher_password" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
           <Property Name="teacher_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="teacher_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="teacher_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="teacher_photo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="teacher_gender_id" Type="Int32" />
+          <Property Name="teacher_role_types_id" Type="Int32" />
           <NavigationProperty Name="Genders" Relationship="CodeAcademyAttendanceSystem_dbModel.FK_Teachers_to_Genders" FromRole="Teachers" ToRole="Genders" />
           <NavigationProperty Name="Groups" Relationship="CodeAcademyAttendanceSystem_dbModel.FK_Groups_to_Teachers" FromRole="Teachers" ToRole="Groups" />
-          <NavigationProperty Name="Teacher_Roles" Relationship="CodeAcademyAttendanceSystem_dbModel.FK_Teacher_Roles_to_Teachers" FromRole="Teachers" ToRole="Teacher_Roles" />
+          <NavigationProperty Name="Role_Types" Relationship="CodeAcademyAttendanceSystem_dbModel.FK_Teachers_to_Role_Types" FromRole="Teachers" ToRole="Role_Types" />
+          <Property Name="teacher_first_login" Type="Boolean" />
         </EntityType>
         <Association Name="FK_Students_to_Genders">
           <End Type="CodeAcademyAttendanceSystem_dbModel.Genders" Role="Genders" Multiplicity="0..1" />
@@ -631,15 +573,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Teacher_Roles_to_Role_Types">
+        <Association Name="FK_Teachers_to_Role_Types">
           <End Type="CodeAcademyAttendanceSystem_dbModel.Role_Types" Role="Role_Types" Multiplicity="0..1" />
-          <End Type="CodeAcademyAttendanceSystem_dbModel.Teacher_Roles" Role="Teacher_Roles" Multiplicity="*" />
+          <End Type="CodeAcademyAttendanceSystem_dbModel.Teachers" Role="Teachers" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role_Types">
               <PropertyRef Name="role_types_id" />
             </Principal>
-            <Dependent Role="Teacher_Roles">
-              <PropertyRef Name="teacher_roles_role_types_id" />
+            <Dependent Role="Teachers">
+              <PropertyRef Name="teacher_role_types_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -652,18 +594,6 @@
             </Principal>
             <Dependent Role="Students_Attendance">
               <PropertyRef Name="students_attendance_student_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Teacher_Roles_to_Teachers">
-          <End Type="CodeAcademyAttendanceSystem_dbModel.Teachers" Role="Teachers" Multiplicity="0..1" />
-          <End Type="CodeAcademyAttendanceSystem_dbModel.Teacher_Roles" Role="Teacher_Roles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teachers">
-              <PropertyRef Name="teacher_id" />
-            </Principal>
-            <Dependent Role="Teacher_Roles">
-              <PropertyRef Name="teacher_roles_teacher_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -770,17 +700,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="CodeAcademyAttendanceSystem_dbModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="System_Settings">
             <EntityTypeMapping TypeName="CodeAcademyAttendanceSystem_dbModel.System_Settings">
               <MappingFragment StoreEntitySet="System_Settings">
@@ -790,18 +709,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Teacher_Roles">
-            <EntityTypeMapping TypeName="CodeAcademyAttendanceSystem_dbModel.Teacher_Roles">
-              <MappingFragment StoreEntitySet="Teacher_Roles">
-                <ScalarProperty Name="teacher_roles_role_types_id" ColumnName="teacher_roles_role_types_id" />
-                <ScalarProperty Name="teacher_roles_teacher_id" ColumnName="teacher_roles_teacher_id" />
-                <ScalarProperty Name="teacher_roles_id" ColumnName="teacher_roles_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Teachers">
             <EntityTypeMapping TypeName="CodeAcademyAttendanceSystem_dbModel.Teachers">
               <MappingFragment StoreEntitySet="Teachers">
+                <ScalarProperty Name="teacher_first_login" ColumnName="teacher_first_login" />
+                <ScalarProperty Name="teacher_role_types_id" ColumnName="teacher_role_types_id" />
                 <ScalarProperty Name="teacher_gender_id" ColumnName="teacher_gender_id" />
                 <ScalarProperty Name="teacher_photo" ColumnName="teacher_photo" />
                 <ScalarProperty Name="teacher_phone" ColumnName="teacher_phone" />
