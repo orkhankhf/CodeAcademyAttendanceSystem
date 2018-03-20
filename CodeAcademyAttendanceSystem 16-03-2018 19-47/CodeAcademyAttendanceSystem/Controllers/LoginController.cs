@@ -12,11 +12,12 @@ namespace CodeAcademyAttendanceSystem.Controllers
     public class LoginController : Controller
     {
         CodeAcademyAttendanceSystem_dbEntities db = new CodeAcademyAttendanceSystem_dbEntities();
-
+        string AreaName;
 
         [HttpGet]
         public ActionResult Index()
         {
+            ResetSessions.ResetAllSessions();
             return View();
         }
         
@@ -37,8 +38,6 @@ namespace CodeAcademyAttendanceSystem.Controllers
                 ViewBag.LoginError = "Şifrə düzgün daxil edilməyib!";
                 return View();
             }
-
-            Role_Types teacher_role = db.Role_Types.Where(r => r.role_types_id == check_teacher_email.teacher_role_types_id).FirstOrDefault();
             
             if (Convert.ToBoolean(check_teacher_email.teacher_first_login))
             {
@@ -46,9 +45,27 @@ namespace CodeAcademyAttendanceSystem.Controllers
                 Session["FirstLogin_Id"] = check_teacher_email.teacher_id.ToString();
                 return RedirectToAction("SetNewPassword", "Login");
             }
-            
 
-            return RedirectToAction("Index", "Dashboard", new { Area = "Adminpanel" });
+            Role_Types teacher_role = db.Role_Types.Where(r => r.role_types_id == check_teacher_email.teacher_role_types_id).FirstOrDefault();
+
+            
+            if(teacher_role.role_types_name == "Admin")
+            {
+                Session["LoggedAdminId"] = check_teacher_email.teacher_id;
+                Session["LoggedAdminEmail"] = check_teacher_email.teacher_email;
+                Session["LoggedAdminPassword"] = check_teacher_email.teacher_password;
+                AreaName = "Adminpanel";
+            }
+            else if(teacher_role.role_types_name == "Müəllim")
+            {
+                Session["LoggedTeacherId"] = check_teacher_email.teacher_id;
+                Session["LoggedTeacherEmail"] = check_teacher_email.teacher_email;
+                Session["LoggedTeacherPassword"] = check_teacher_email.teacher_password;
+                AreaName = "Teacher";
+            }
+
+
+            return RedirectToAction("Index", "Dashboard", new { Area = AreaName });
         }
 
 

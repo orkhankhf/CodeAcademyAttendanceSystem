@@ -2,9 +2,36 @@
 .color_white{
     color: white;
 }
+.control-group.required .control-label:after {
+    color: #e20000;
+    content: "*";
+    position: absolute;
+    margin-left: 5px;
+    font-size: 15px;
+    margin-top: 3px;
+}
 
-
-/* Login > SetNewPassword (View) */
+/* Login > SetNewPassword */
 .set_password_form{
     border: 0px !important;
+}
+
+/* Adminpanel > Dashboard */
+.icon-down {
+    float: right;
+    font-size: 18px;
+    position: relative;
+    bottom: 5px;
+    height: 25px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+/* Adminpanel > Teachers > Create */
+.custom_file_input{
+    display: none !important;
+}
+#basic_validate .help-inline{
+    color: darkred !important;
+    font-size: 13px !important;
 }

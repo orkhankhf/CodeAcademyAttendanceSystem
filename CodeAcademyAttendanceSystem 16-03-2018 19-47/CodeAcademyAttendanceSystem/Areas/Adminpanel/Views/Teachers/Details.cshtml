@@ -1,0 +1,91 @@
+﻿@model CodeAcademyAttendanceSystem.Models.Teachers
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Teachers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.teacher_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teacher_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teacher_password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teacher_password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teacher_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teacher_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teacher_surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teacher_surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teacher_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teacher_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teacher_photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teacher_photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teacher_first_login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teacher_first_login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genders.gender_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genders.gender_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role_Types.role_types_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role_Types.role_types_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.teacher_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

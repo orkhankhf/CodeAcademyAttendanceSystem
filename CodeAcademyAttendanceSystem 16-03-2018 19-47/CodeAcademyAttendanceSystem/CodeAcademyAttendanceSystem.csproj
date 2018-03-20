@@ -167,6 +167,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Adminpanel\AdminpanelAreaRegistration.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\TeachersController.cs" />
+    <Compile Include="Areas\Teacher\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
+    <Compile Include="Filters\AdminpanelLoginFilter.cs" />
     <Compile Include="Filters\SetNewPasswordFilter.cs" />
     <Compile Include="Models\PasswordSecurity.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -208,6 +212,7 @@
     <Compile Include="Models\Qr_Codes.cs">
       <DependentUpon>CodeAcademyAttendanceSystem_db_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ResetSessions.cs" />
     <Compile Include="Models\Role_Types.cs">
       <DependentUpon>CodeAcademyAttendanceSystem_db_Model.tt</DependentUpon>
     </Compile>
@@ -394,6 +399,13 @@
     <Content Include="Areas\Adminpanel\Assets-Adminpanel\img\demo\Thumbs.db" />
     <Content Include="Areas\Adminpanel\Assets-Adminpanel\img\icons\32\Thumbs.db" />
     <Content Include="Areas\Adminpanel\Assets-Adminpanel\img\Thumbs.db" />
+    <Content Include="Areas\Teacher\Views\web.config" />
+    <Content Include="Areas\Teacher\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Teachers\Create.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Teachers\Delete.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Teachers\Details.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Teachers\Edit.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Teachers\Index.cshtml" />
     <None Include="Properties\PublishProfiles\CodeAcademyAttendanceSystem - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -445,7 +457,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Adminpanel\Assets-Adminpanel\Teacher_Photos\" />
     <Folder Include="Areas\Adminpanel\Models\" />
+    <Folder Include="Areas\Teacher\Models\" />
+    <Folder Include="Areas\Teacher\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -9,8 +9,6 @@ namespace CodeAcademyAttendanceSystem.Filters
 {
     public class SetNewPasswordFilter : ActionFilterAttribute
     {
-        CodeAcademyAttendanceSystem_dbEntities db = new CodeAcademyAttendanceSystem_dbEntities();
-
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (HttpContext.Current.Session["FirstLogin_Id"] == null || HttpContext.Current.Session["FirstLogin_Email"] == null)

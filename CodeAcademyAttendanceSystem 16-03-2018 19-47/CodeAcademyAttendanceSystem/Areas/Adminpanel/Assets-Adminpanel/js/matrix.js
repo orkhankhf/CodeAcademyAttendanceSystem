@@ -11,9 +11,10 @@ $(document).ready(function(){
 		var submenu = $(this).siblings('ul');
 		var li = $(this).parents('li');
 		var submenus = $('#sidebar li.submenu ul');
-		var submenus_parents = $('#sidebar li.submenu');
+        var submenus_parents = $('#sidebar li.submenu');
+        $("#sidebar").find(".icon-down").css("transform", "rotate(360deg)");
 		if(li.hasClass('open'))
-		{
+        {
 			if(($(window).width() > 768) || ($(window).width() < 479)) {
 				submenu.slideUp();
 			} else {
@@ -21,7 +22,8 @@ $(document).ready(function(){
 			}
 			li.removeClass('open');
 		} else 
-		{
+        {
+            li.find(".icon-down").css("transform", "rotate(180deg)");
 			if(($(window).width() > 768) || ($(window).width() < 479)) {
 				submenus.slideUp();			
 				submenu.slideDown();
