@@ -13,7 +13,7 @@ using System.IO;
 
 namespace CodeAcademyAttendanceSystem.Areas.Adminpanel.Controllers
 {
-    [AdminpanelLoginFilter]
+    //[AdminpanelLoginFilter]
     public class TeachersController : Controller
     {
         private CodeAcademyAttendanceSystem_dbEntities db = new CodeAcademyAttendanceSystem_dbEntities();
@@ -23,10 +23,10 @@ namespace CodeAcademyAttendanceSystem.Areas.Adminpanel.Controllers
         public ActionResult Index()
         {
             var teachers = db.Teachers.Include(t => t.Genders).Include(t => t.Role_Types);
-            return View(teachers.ToList());
+            return View(teachers.OrderByDescending(t=>t.teacher_id).ToList());
         }
 
-        // GET: Adminpanel/Teachers/Details/5
+        [HttpGet]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -48,10 +48,7 @@ namespace CodeAcademyAttendanceSystem.Areas.Adminpanel.Controllers
             ViewBag.teacher_role_types_id = new SelectList(db.Role_Types, "role_types_id", "role_types_name");
             return View();
         }
-
-        // POST: Adminpanel/Teachers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "teacher_id,teacher_email,teacher_password,teacher_name,teacher_surname,teacher_phone,teacher_gender_id,teacher_role_types_id,teacher_first_login")] Teachers teachers, HttpPostedFileBase teacher_photo)
@@ -61,8 +58,8 @@ namespace CodeAcademyAttendanceSystem.Areas.Adminpanel.Controllers
                 if (teacher_photo != null)
                 {
                     teacher_photo_name = (DateTime.Now.ToString("yyyyMMddHHmmss")) + Path.GetExtension(teacher_photo.FileName);
-                    var emp_ID_proof_path = Path.Combine(Server.MapPath("~/Areas/Adminpanel/Assets-Adminpanel/Teacher_Photos"), teacher_photo_name);
-                    teacher_photo.SaveAs(emp_ID_proof_path);
+                    var teacher_photo_path = Path.Combine(Server.MapPath("~/Areas/Adminpanel/Assets-Adminpanel/Teacher_Photos"), teacher_photo_name);
+                    teacher_photo.SaveAs(teacher_photo_path);
                 }
                 teachers.teacher_photo = teacher_photo_name;
                 teachers.teacher_first_login = true;
@@ -77,7 +74,7 @@ namespace CodeAcademyAttendanceSystem.Areas.Adminpanel.Controllers
             return View(teachers);
         }
 
-        // GET: Adminpanel/Teachers/Edit/5
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -93,17 +90,54 @@ namespace CodeAcademyAttendanceSystem.Areas.Adminpanel.Controllers
             ViewBag.teacher_role_types_id = new SelectList(db.Role_Types, "role_types_id", "role_types_name", teachers.teacher_role_types_id);
             return View(teachers);
         }
-
-        // POST: Adminpanel/Teachers/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "teacher_id,teacher_email,teacher_password,teacher_name,teacher_surname,teacher_phone,teacher_photo,teacher_gender_id,teacher_role_types_id,teacher_first_login")] Teachers teachers)
+        public ActionResult Edit([Bind(Include = "teacher_id,teacher_email,teacher_name,teacher_surname,teacher_phone,teacher_gender_id,teacher_role_types_id,teacher_first_login")] Teachers teachers, string reset_password, HttpPostedFileBase teacher_photo)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(teachers).State = EntityState.Modified;
+                //Update olunacaq müəllimi databazadan gətir
+                Teachers update_teacher = db.Teachers.Find(teachers.teacher_id);
+
+                update_teacher.teacher_email = teachers.teacher_email;
+                update_teacher.teacher_name = teachers.teacher_name;
+                update_teacher.teacher_surname = teachers.teacher_surname;
+                update_teacher.teacher_phone = teachers.teacher_phone;
+                update_teacher.teacher_gender_id = teachers.teacher_gender_id;
+                update_teacher.teacher_role_types_id = teachers.teacher_role_types_id;
+
+
+
+
+                //Əgər update formunda reset password check edilibsə
+                if (reset_password == "true")
+                {
+                    //Müəllimin şifrəsini yenidən Code123456 olaraq şifrələyir və təyin edir
+                    update_teacher.teacher_password = PasswordStorage.CreateHash("Code123456");
+                    update_teacher.teacher_first_login = true;
+                }
+
+                //Əgər update formunda şəkil seçilibsə
+                if (teacher_photo != null)
+                {
+                    //Əgər müəllimin əvvəldən şəkli olubsa (null deyilsə)
+                    if (update_teacher.teacher_photo != null)
+                    {
+                        teacher_photo_name = (Path.GetFileNameWithoutExtension(update_teacher.teacher_photo) + Path.GetExtension(teacher_photo.FileName));
+                        var teacher_photo_path = Path.Combine(Server.MapPath("~/Areas/Adminpanel/Assets-Adminpanel/Teacher_Photos"), teacher_photo_name);
+                        teacher_photo.SaveAs(teacher_photo_path);
+                    }
+                    else
+                    {
+                        //Müəllimin əvvəldən şəkli olmayıbsa yeni şəkil adı generate edib databazaya atır və eynilədə şəkillər papkasına atır.
+                        teacher_photo_name = (DateTime.Now.ToString("yyyyMMddHHmmss")) + Path.GetExtension(teacher_photo.FileName);
+                        var teacher_photo_path = Path.Combine(Server.MapPath("~/Areas/Adminpanel/Assets-Adminpanel/Teacher_Photos"), teacher_photo_name);
+                        teacher_photo.SaveAs(teacher_photo_path);
+                        update_teacher.teacher_photo = teacher_photo_name;
+                    }
+                }
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -112,30 +146,22 @@ namespace CodeAcademyAttendanceSystem.Areas.Adminpanel.Controllers
             return View(teachers);
         }
 
-        // GET: Adminpanel/Teachers/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Teachers teachers = db.Teachers.Find(id);
-            if (teachers == null)
-            {
-                return HttpNotFound();
-            }
-            return View(teachers);
-        }
-
         // POST: Adminpanel/Teachers/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Teachers teachers = db.Teachers.Find(id);
-            db.Teachers.Remove(teachers);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                Teachers teachers = db.Teachers.Find(id);
+                db.Teachers.Remove(teachers);
+                db.SaveChanges();
+                return Json(new { result = "teacher_deleted" }, JsonRequestBehavior.AllowGet);
+            }
+            catch
+            {
+                return Json(new { result = "error" }, JsonRequestBehavior.AllowGet);
+            }
         }
 
         protected override void Dispose(bool disposing)

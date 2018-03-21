@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Matrix Admin</title>
+    <title>@ViewBag.Title</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @RenderSection("styles", required: false)
@@ -57,7 +57,7 @@
             <li class="submenu">
                 <a href="#"><i class="icon icon-user"></i> <span>Müəllim</span> <span class="icon-sort-down icon-down"></span></a>
                 <ul>
-                    <li><a href="@Url.Action("Create", "Teachers", new { Area="Adminpanel"})">Əlavə et</a></li>
+                    <li><a href="@Url.Action("Create", "Teachers", new { Area="Adminpanel"})">Əlavə Et</a></li>
                     <li><a href="@Url.Action("Index", "Teachers", new { Area="Adminpanel"})">Redaktə Et / Sil</a></li>
                 </ul>
             </li>

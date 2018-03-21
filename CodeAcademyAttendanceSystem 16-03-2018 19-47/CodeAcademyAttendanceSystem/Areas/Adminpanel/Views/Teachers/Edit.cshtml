@@ -1,104 +1,155 @@
 ﻿@model CodeAcademyAttendanceSystem.Models.Teachers
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Müəllim Məlumatlarını Redaktə Et";
     Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
 }
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Teachers</h4>
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "Teachers", new { Area="Adminpanel"})" title="Müəllim Redaktə Et / Sil" class="tip-bottom"><i class="icon-user"></i> Müəllim Redaktə Et / Sil</a> <a href="@Url.Action("Edit", "Teachers", new { Area="Adminpanel", id=@Model.teacher_id})" title="@Model.teacher_name  @Model.teacher_surname" class="tip-bottom"><i class="icon-user"></i> @Model.teacher_name @Model.teacher_surname</a></div>
+    </div>
+    <!--End-breadcrumbs-->
+    <div class="container-fluid">
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.teacher_id)
+        <div class="row-fluid">
+            <div class="span6">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <h5>Müəllim Məlumatları</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        @using (Html.BeginForm("Edit", "Teachers", new { Area = "Adminpanel" }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data", name = "basic_validate", id = "basic_validate", novalidate = "novalidate" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            /*Aşağıda müəllimin id adresi mütləq tutulmalıdır*/
+                            @Html.HiddenFor(model => model.teacher_id)
+                            <div class="control-group required">
+                                <label class="control-label">Ad </label>
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.teacher_name, new { htmlAttributes = new { @class = "span11", minlength = "2", maxlength = "50", required = "required" } })
+                                </div>
+                            </div>
+                            <div class="control-group required">
+                                <label class="control-label">Soyad </label>
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.teacher_surname, new { htmlAttributes = new { @class = "span11", minlength = "2", maxlength = "50", required = "required" } })
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.teacher_email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.teacher_email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.teacher_email, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="control-group required">
+                                <label class="control-label">E-mail </label>
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.teacher_email, new { htmlAttributes = new { @class = "span11", maxlength = "150", required = "required", type = "email" } })
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.teacher_password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.teacher_password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.teacher_password, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="control-group">
+                                <label class="control-label">Şifrə </label>
+                                <div class="controls">
+                                    <label>
+                                        <div class="checker" id="uniform-undefined">
+                                                <input type="checkbox" style="opacity: 0;">
+                                                <input type="hidden" name="reset_password" value="false" />
+                                        </div>
+                                        <span class="text-warning">Şifrəni Sıfırla</span>
+                                    </label>
+                                    <span class="text-center text-info">Birdəfəlik Şifrə: Code123456</span>
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.teacher_name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.teacher_name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.teacher_name, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="control-group">
+                                <label class="control-label">Əlaqə Nömrəsi  </label>
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.teacher_phone, new { htmlAttributes = new { @class = "span11", digits = "digits", minlength = "10", maxlength = "14" } })
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.teacher_surname, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.teacher_surname, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.teacher_surname, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="control-group">
+                                <label class="control-label">Şəkil </label>
+                                <div class="controls">
+                                    <label class="btn btn-primary span11">
+                                        Şəkil Seç <input type="file" name="teacher_photo" class="form-control span11 custom_file_input" accept="image/x-png,image/jpeg" />
+                                    </label>
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.teacher_phone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.teacher_phone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.teacher_phone, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="control-group">
+                                <label class="control-label">Cins </label>
+                                <div class="controls">
+                                    @Html.DropDownList("teacher_gender_id", null, htmlAttributes: new { @class = "form-control span11" })
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.teacher_photo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.teacher_photo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.teacher_photo, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="control-group">
+                                <label class="control-label">Vəzifə </label>
+                                <div class="controls">
+                                    @Html.DropDownList("teacher_role_types_id", null, htmlAttributes: new { @class = "form-control span11" })
+                                </div>
+                            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.teacher_gender_id, "teacher_gender_id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("teacher_gender_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.teacher_gender_id, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.teacher_role_types_id, "teacher_role_types_id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("teacher_role_types_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.teacher_role_types_id, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.teacher_first_login, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.teacher_first_login)
-                    @Html.ValidationMessageFor(model => model.teacher_first_login, "", new { @class = "text-danger" })
+                            <div class="control-group">
+                                <div class="controls">
+                                    <input type="submit" value="Yadda Saxla" class="btn btn-success" />
+                                </div>
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="span6">
+                <div class="widget-box">
+                    @{ 
+                        if(Model.teacher_photo == null)
+                        {
+                            <img src="~/Areas/Adminpanel/Assets-Adminpanel/Teacher_Photos/default-photo.png" width="100%" />
+                        }
+                        else
+                        {
+                            <img src="~/Areas/Adminpanel/Assets-Adminpanel/Teacher_Photos/@Model.teacher_photo" width="100%" />
+                        }
+                    }
+                </div>
             </div>
-        </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+@section styles{
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/uniform.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/select2.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-media.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/font-awesome/css/font-awesome.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+}
+@section scripts {
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.ui.custom.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.uniform.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/select2.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.validate.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.form_validation.js"></script>
+
+    <script>
+        //Formda validation olduğu üçün file tipindəki inputun üzərinə yazılar çıxırdı və display block olurdu. Bu səbəbdən də, həmin yazıları ləğv etdim.
+        $(document).ready(function () {
+            $(".uploader").removeAttr("class");
+            $(".uploader").removeAttr("id");
+            $("span.filename, span.action").remove();
+        });
+        $(document).on("click", "[type='checkbox']", function () {
+            if (this.checked) {
+                $("[name='reset_password']").val("true");
+            } else {
+                $("[name='reset_password']").val("false");
+            }
+        });
+    </script>
+}

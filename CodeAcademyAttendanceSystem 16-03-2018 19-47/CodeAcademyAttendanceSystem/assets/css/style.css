@@ -10,7 +10,9 @@
     font-size: 15px;
     margin-top: 3px;
 }
-
+.td-center {
+    text-align: center !important;
+}
 /* Login > SetNewPassword */
 .set_password_form{
     border: 0px !important;
@@ -34,4 +36,16 @@
 #basic_validate .help-inline{
     color: darkred !important;
     font-size: 13px !important;
+}
+
+/* Adminpanel > Teachers > Details */
+.teacher_details_table, .teacher_details_table th {
+    margin-top: 20px;
+    background: #08c;
+    color: white;
+    font-size: 12px;
+}
+.teacher_details_table tr:hover > th, .teacher_details_table tr:hover > td{
+    background: white !important;
+    color: #08c !important;
 }

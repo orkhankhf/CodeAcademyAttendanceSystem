@@ -1,91 +1,91 @@
 ﻿@model CodeAcademyAttendanceSystem.Models.Teachers
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Müəllim Redaktə Et / Sil";
     Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Teachers</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.teacher_email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.teacher_email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.teacher_password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.teacher_password)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.teacher_name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.teacher_name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.teacher_surname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.teacher_surname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.teacher_phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.teacher_phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.teacher_photo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.teacher_photo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.teacher_first_login)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.teacher_first_login)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Genders.gender_name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Genders.gender_name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Role_Types.role_types_name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Role_Types.role_types_name)
-        </dd>
-
-    </dl>
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "Teachers", new { Area="Adminpanel"})" title="Müəllim Redaktə Et / Sil" class="tip-bottom"><i class="icon-user"></i> Müəllim Redaktə Et / Sil</a></div>
+    </div>
+    <div class="container-fluid">
+        <hr>
+        <div class="row-fluid">
+            <div class="span6">
+                @{
+                    if (Model.teacher_photo == null)
+                    {
+                        <img src="~/Areas/Adminpanel/Assets-Adminpanel/Teacher_Photos/default-photo.png" width="130px" />
+                    }
+                    else
+                    {
+                        <img src="~/Areas/Adminpanel/Assets-Adminpanel/Teacher_Photos/@Model.teacher_photo" width="130px" />
+                    }
+                }
+                <table class="teacher_details_table table table-hover table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Ad</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.teacher_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Soyad</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.teacher_surname)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.teacher_email)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Telefon</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.teacher_phone)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Cins</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.Genders.gender_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Rütbə</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.Role_Types.role_types_name)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.teacher_id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@section styles{
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/uniform.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/select2.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-media.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/font-awesome/css/font-awesome.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+}
+@section scripts{
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.ui.custom.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.uniform.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/select2.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.tables.js"></script>
+}

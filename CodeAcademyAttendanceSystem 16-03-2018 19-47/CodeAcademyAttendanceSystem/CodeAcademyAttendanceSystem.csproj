@@ -355,6 +355,8 @@
     <Content Include="Areas\Adminpanel\Assets-Adminpanel\js\matrix.wizard.js" />
     <Content Include="Areas\Adminpanel\Assets-Adminpanel\js\select2.min.js" />
     <Content Include="Areas\Adminpanel\Assets-Adminpanel\js\wysihtml5-0.3.0.js" />
+    <Content Include="Areas\Adminpanel\Assets-Adminpanel\Teacher_Photos\20180320060833.jpg" />
+    <Content Include="Areas\Adminpanel\Assets-Adminpanel\Teacher_Photos\default-photo.png" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\img\logo.png" />
     <Content Include="Content\bootstrap.css" />
@@ -402,7 +404,6 @@
     <Content Include="Areas\Teacher\Views\web.config" />
     <Content Include="Areas\Teacher\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Adminpanel\Views\Teachers\Create.cshtml" />
-    <Content Include="Areas\Adminpanel\Views\Teachers\Delete.cshtml" />
     <Content Include="Areas\Adminpanel\Views\Teachers\Details.cshtml" />
     <Content Include="Areas\Adminpanel\Views\Teachers\Edit.cshtml" />
     <Content Include="Areas\Adminpanel\Views\Teachers\Index.cshtml" />
@@ -457,7 +458,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Adminpanel\Assets-Adminpanel\Teacher_Photos\" />
     <Folder Include="Areas\Adminpanel\Models\" />
     <Folder Include="Areas\Teacher\Models\" />
     <Folder Include="Areas\Teacher\Views\Shared\" />
