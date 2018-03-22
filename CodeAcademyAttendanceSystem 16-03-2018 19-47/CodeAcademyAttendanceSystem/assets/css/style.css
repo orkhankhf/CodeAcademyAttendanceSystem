@@ -13,6 +13,41 @@
 .td-center {
     text-align: center !important;
 }
+.table_inside_table tr, .table_inside_table th, .table_inside_table td, .table_inside_table {
+    border-collapse: collapse !important;
+}
+.table_inside_table {
+    margin: 0px;
+    background: #08c;
+    color: white;
+    display: inline-block;
+    overflow: hidden;
+}
+.table_inside_table th {
+    border-bottom: 1px solid white;
+}
+.custom_blue_table, .custom_blue_table th {
+    margin-top: 20px;
+    background: #08c;
+    color: white;
+    font-size: 12px;
+}
+.custom_blue_table tr:hover > th, .custom_blue_table tr:hover > td {
+    background: white !important;
+    color: #08c !important;
+}
+.custom_blue_table .disable_hover:hover > th, .custom_blue_table .disable_hover:hover > td {
+    background: #08c !important;
+    color: white !important;
+}
+
+
+
+
+
+
+
+
 /* Login > SetNewPassword */
 .set_password_form{
     border: 0px !important;
@@ -38,14 +73,14 @@
     font-size: 13px !important;
 }
 
-/* Adminpanel > Teachers > Details */
-.teacher_details_table, .teacher_details_table th {
-    margin-top: 20px;
-    background: #08c;
-    color: white;
-    font-size: 12px;
+/* Adminpanel > Students > Details */
+.student_attendance_table .icon-ok {
+    color: lawngreen;
 }
-.teacher_details_table tr:hover > th, .teacher_details_table tr:hover > td{
-    background: white !important;
-    color: #08c !important;
+.student_attendance_table .icon-remove {
+    color: darkred;
+}
+.open_attendance_table_btn{
+    display: block;
+    width: 100% !important; 
 }

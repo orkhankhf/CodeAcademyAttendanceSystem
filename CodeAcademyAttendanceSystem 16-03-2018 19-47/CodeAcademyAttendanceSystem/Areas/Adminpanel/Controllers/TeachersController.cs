@@ -13,7 +13,7 @@ using System.IO;
 
 namespace CodeAcademyAttendanceSystem.Areas.Adminpanel.Controllers
 {
-    //[AdminpanelLoginFilter]
+    [AdminpanelLoginFilter]
     public class TeachersController : Controller
     {
         private CodeAcademyAttendanceSystem_dbEntities db = new CodeAcademyAttendanceSystem_dbEntities();

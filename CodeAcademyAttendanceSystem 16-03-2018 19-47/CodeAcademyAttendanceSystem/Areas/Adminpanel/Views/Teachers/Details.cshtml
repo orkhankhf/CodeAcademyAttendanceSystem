@@ -1,13 +1,13 @@
 ﻿@model CodeAcademyAttendanceSystem.Models.Teachers
 
 @{
-    ViewBag.Title = "Müəllim Redaktə Et / Sil";
+    ViewBag.Title = @Model.teacher_name + " " + @Model.teacher_surname + " " + "Haqqında Ətraflı Məlumat";
     Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
 }
 
 <div id="content">
     <div id="content-header">
-        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "Teachers", new { Area="Adminpanel"})" title="Müəllim Redaktə Et / Sil" class="tip-bottom"><i class="icon-user"></i> Müəllim Redaktə Et / Sil</a></div>
+        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "Teachers", new { Area="Adminpanel"})" title="Müəllim Redaktə Et / Sil" class="tip-bottom"><i class="icon-user"></i> Müəllim Redaktə Et / Sil</a> <a href="@Url.Action("Details", "Teachers", new { Area="Adminpanel", id=Model.teacher_id})" title="@Model.teacher_name @Model.teacher_surname Haqqında Ətraflı Məlumat" class="tip-bottom"><i class="icon-user"></i> @Model.teacher_name @Model.teacher_surname Haqqında Ətraflı Məlumat</a></div>
     </div>
     <div class="container-fluid">
         <hr>
@@ -23,7 +23,7 @@
                         <img src="~/Areas/Adminpanel/Assets-Adminpanel/Teacher_Photos/@Model.teacher_photo" width="130px" />
                     }
                 }
-                <table class="teacher_details_table table table-hover table-bordered">
+                <table class="custom_blue_table table table-hover table-bordered">
                     <tbody>
                         <tr>
                             <th>Ad</th>
@@ -59,6 +59,57 @@
                             <th>Rütbə</th>
                             <td>
                                 @Html.DisplayFor(modelItem => modelItem.Role_Types.role_types_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Hesab Statusu</th>
+                            <td>
+                                @{ 
+                                    if(Model.teacher_first_login == true)
+                                    {
+                                        <span>Deaktiv</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Aktiv</span>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                        <tr class="disable_hover">
+                            <th>Grup(lar)</th>
+                            <td>
+                                @{ 
+                                    if(Model.Groups.Count > 0)
+                                    {
+                                        <table class="table_inside_table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Adı</th>
+                                                    <th>Növü</th>
+                                                    <th>Dərs Günü</th>
+                                                    <th>Dərs Vaxtı</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.Groups.Where(g=>g.group_status == true).OrderByDescending(g=>g.group_id))
+                                                {
+                                                    <tr>
+                                                        <td>@item.group_name</td>
+                                                        <td>@item.Group_Types.group_types_name</td>
+                                                        <td>@item.Lesson_Times.Group_Schedule.group_schedule_name</td>
+                                                        <td>@item.Lesson_Times.lesson_times_name</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                        
+                                    }
+                                    else
+                                    {
+                                        <p>Bu müəllimin dərs dediyi grup yoxdur.</p>
+                                    }
+                                }
                             </td>
                         </tr>
                     </tbody>

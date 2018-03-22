@@ -16,7 +16,7 @@
                     <div class="widget-box">
                         <div class="widget-title">
                             <span class="icon"><i class="icon-th"></i></span>
-                            <h5>Data table</h5>
+                            <h5>Müəllimlər</h5>
                         </div>
                         <div class="widget-content nopadding">
                             <table class="table table-bordered data-table">
@@ -127,7 +127,7 @@
             teacher_id = 0;
             function deletion_warning(id, teacher_name) {
                 teacher_id = id;
-                $("#deletion_warning").text(teacher_name + "adlı müəllimi silmək istədiyinizdən əminsiniz?");
+                $("#deletion_warning").text(teacher_name + " adlı müəllimi silmək istədiyinizdən əminsiniz?");
             }
             function delete_teacher() {
                 var token = $('input[name="__RequestVerificationToken"]').val();

@@ -167,6 +167,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Adminpanel\AdminpanelAreaRegistration.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\StudentsController.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\TeachersController.cs" />
     <Compile Include="Areas\Teacher\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
@@ -407,6 +408,10 @@
     <Content Include="Areas\Adminpanel\Views\Teachers\Details.cshtml" />
     <Content Include="Areas\Adminpanel\Views\Teachers\Edit.cshtml" />
     <Content Include="Areas\Adminpanel\Views\Teachers\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Students\Create.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Students\Details.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Students\Edit.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Students\Index.cshtml" />
     <None Include="Properties\PublishProfiles\CodeAcademyAttendanceSystem - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

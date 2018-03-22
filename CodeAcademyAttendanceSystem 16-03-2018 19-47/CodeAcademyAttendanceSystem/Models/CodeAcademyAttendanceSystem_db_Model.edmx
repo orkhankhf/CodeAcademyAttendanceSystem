@@ -72,7 +72,7 @@
           </Key>
           <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="student_email" Type="nvarchar" MaxLength="150" />
-          <Property Name="student_password" Type="nvarchar" MaxLength="35" />
+          <Property Name="student_password" Type="nvarchar" MaxLength="75" />
           <Property Name="student_name" Type="nvarchar" MaxLength="50" />
           <Property Name="student_surname" Type="nvarchar" MaxLength="50" />
           <Property Name="student_father_name" Type="nvarchar" MaxLength="50" />
@@ -426,7 +426,7 @@
           </Key>
           <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="student_email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="student_password" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="student_password" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
           <Property Name="student_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="student_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="student_father_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
