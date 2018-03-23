@@ -83,7 +83,13 @@
                     <li><a href="@Url.Action("Index", "GroupSchedule", new { Area="Adminpanel"})">Dərs Günü Redaktə Et / Sil</a></li>
                 </ul>
             </li>
-            
+            <li class="submenu">
+                <a href="#"><i class="icon icon-time"></i> <span>Dərs Saatları</span> <span class="icon-sort-down icon-down"></span></a>
+                <ul>
+                    <li><a href="@Url.Action("Create", "LessonTimes", new { Area="Adminpanel"})">Dərs Saatı Əlavə Et</a></li>
+                    <li><a href="@Url.Action("Index", "LessonTimes", new { Area="Adminpanel"})">Dərs Saatı Redaktə Et / Sil</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
     <!--sidebar-menu-->

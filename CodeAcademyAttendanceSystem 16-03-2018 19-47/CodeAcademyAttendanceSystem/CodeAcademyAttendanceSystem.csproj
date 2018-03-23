@@ -423,8 +423,6 @@
     <Content Include="Areas\Adminpanel\Views\GroupSchedule\Edit.cshtml" />
     <Content Include="Areas\Adminpanel\Views\GroupSchedule\Index.cshtml" />
     <Content Include="Areas\Adminpanel\Views\LessonTimes\Create.cshtml" />
-    <Content Include="Areas\Adminpanel\Views\LessonTimes\Delete.cshtml" />
-    <Content Include="Areas\Adminpanel\Views\LessonTimes\Details.cshtml" />
     <Content Include="Areas\Adminpanel\Views\LessonTimes\Edit.cshtml" />
     <Content Include="Areas\Adminpanel\Views\LessonTimes\Index.cshtml" />
     <None Include="Properties\PublishProfiles\CodeAcademyAttendanceSystem - Web Deploy.pubxml" />

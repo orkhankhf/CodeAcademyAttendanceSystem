@@ -21,7 +21,7 @@
                         <h5>Tələbə Məlumatları</h5>
                     </div>
                     <div class="widget-content nopadding">
-                        @using (Html.BeginForm("Edit", "Students", new { Area = "Adminpanel" }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data", name = "basic_validate", id = "basic_validate", novalidate = "novalidate" }))
+                        @using (Html.BeginForm("Edit", "Students", new { Area = "Adminpanel" }, FormMethod.Post, new { @class = "form-horizontal", name = "basic_validate", id = "basic_validate", novalidate = "novalidate" }))
                         {
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -76,7 +76,7 @@
                             </div>
 
                             <div class="control-group">
-                                <label class="control-label">Əlaqə Nömrəsi  </label>
+                                <label class="control-label">Telefon  </label>
                                 <div class="controls">
                                     @Html.EditorFor(model => model.student_phone, new { htmlAttributes = new { @class = "span11", digits = "digits", minlength = "10", maxlength = "14" } })
                                 </div>
@@ -121,57 +121,57 @@
         </div>
     </div>
 </div>
-    @section styles{
-        <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap-responsive.min.css" />
-        <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/uniform.css" />
-        <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/select2.css" />
-        <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-style.css" />
-        <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-media.css" />
-        <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/font-awesome/css/font-awesome.css" />
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="~/assets/css/style.css" />
-    }
-    @section scripts {
-        <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.min.js"></script>
-        <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.ui.custom.js"></script>
-        <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/bootstrap.min.js"></script>
-        <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.uniform.js"></script>
-        <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/select2.min.js"></script>
-        <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.validate.js"></script>
-        <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.js"></script>
-        <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.form_validation.js"></script>
+@section styles{
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/uniform.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/select2.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-media.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/font-awesome/css/font-awesome.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+}
+@section scripts {
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.ui.custom.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.uniform.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/select2.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.validate.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.form_validation.js"></script>
 
-        <script>
-            $(document).ready(function () {
-                //Əgər hesab bağlıdırsa (student_status false`dursa) close_account namesi olan hidden inputun value`nü true ele, açıqdırsa false elə
-                if ($("#checkbox_for_account").prop("checked")) {
-                    //hesab bağlıdır deməkdir
+    <script>
+        $(document).ready(function () {
+            //Əgər hesab bağlıdırsa (student_status false`dursa) close_account namesi olan hidden inputun value`nü true ele, açıqdırsa false elə
+            if ($("#checkbox_for_account").prop("checked")) {
+                //hesab bağlıdır deməkdir
+                $("[name='close_account']").val("true");
+            } else {
+                //hesab açıqdır deməkdir
+                $("[name='close_account']").val("false");
+            }
+        });
+        //Tipi checkbox olan inputlara klik edəndə...
+        $(document).on("click", "[type='checkbox']", function () {
+            //Klik edilən checkbox, passwordu resetləmək üçündürsə
+            if (this.id == "checkbox_for_password") {
+                //Checkbox check olunubsa reset_password adındakı hidden inputun dəyərini true, olunmayıbsa false et
+                if (this.checked) {
+                    $("[name='reset_password']").val("true");
+                } else {
+                    $("[name='reset_password']").val("false");
+                }
+                //Klik edilən checkbox, hesabı bağlamaq üçündürsə
+            } else if (this.id == "checkbox_for_account") {
+                //Checkbox check olunubsa close_account adındakı hidden inputun dəyərini true, olunmayıbsa false et
+                if (this.checked) {
                     $("[name='close_account']").val("true");
                 } else {
-                    //hesab açıqdır deməkdir
                     $("[name='close_account']").val("false");
                 }
-            });
-            //Tipi checkbox olan inputlara klik edəndə...
-            $(document).on("click", "[type='checkbox']", function () {
-                //Klik edilən checkbox, passwordu resetləmək üçündürsə
-                if (this.id == "checkbox_for_password") {
-                    //Checkbox check olunubsa reset_password adındakı hidden inputun dəyərini true, olunmayıbsa false et
-                    if (this.checked) {
-                        $("[name='reset_password']").val("true");
-                    } else {
-                        $("[name='reset_password']").val("false");
-                    }
-                    //Klik edilən checkbox, hesabı bağlamaq üçündürsə
-                } else if (this.id == "checkbox_for_account") {
-                    //Checkbox check olunubsa close_account adındakı hidden inputun dəyərini true, olunmayıbsa false et
-                    if (this.checked) {
-                        $("[name='close_account']").val("true");
-                    } else {
-                        $("[name='close_account']").val("false");
-                    }
-                }
-            });
-        </script>
-    }
+            }
+        });
+    </script>
+}

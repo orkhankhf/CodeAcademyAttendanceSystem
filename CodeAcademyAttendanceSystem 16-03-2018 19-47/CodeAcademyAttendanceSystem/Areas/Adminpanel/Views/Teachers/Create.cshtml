@@ -53,7 +53,7 @@
                                 </div>
 
                                 <div class="control-group">
-                                    <label class="control-label">Əlaqə Nömrəsi  </label>
+                                    <label class="control-label">Telefon  </label>
                                     <div class="controls">
                                         @Html.EditorFor(model => model.teacher_phone, new { htmlAttributes = new { @class = "span11", digits="digits", minlength="10", maxlength="14"} })
                                     </div>
@@ -76,7 +76,7 @@
                                 </div>
 
                                 <div class="control-group">
-                                    <label class="control-label">Vəzifə </label>
+                                    <label class="control-label">Rütbə </label>
                                     <div class="controls">
                                         @Html.DropDownList("teacher_role_types_id", null, htmlAttributes: new { @class = "form-control span11" })
                                     </div>

@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CodeAcademyAttendanceSystem.Models;
+using CodeAcademyAttendanceSystem.Filters;
 
 namespace CodeAcademyAttendanceSystem.Areas.Adminpanel.Controllers
 {
+    [AdminpanelLoginFilter]
     public class GroupScheduleController : Controller
     {
         private CodeAcademyAttendanceSystem_dbEntities db = new CodeAcademyAttendanceSystem_dbEntities();
