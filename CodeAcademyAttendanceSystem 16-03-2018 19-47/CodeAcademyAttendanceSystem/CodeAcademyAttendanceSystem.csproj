@@ -167,6 +167,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Adminpanel\AdminpanelAreaRegistration.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\GroupScheduleController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\GroupTypesController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\LessonTimesController.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\StudentsController.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\TeachersController.cs" />
     <Compile Include="Areas\Teacher\Controllers\DashboardController.cs" />
@@ -359,6 +362,7 @@
     <Content Include="Areas\Adminpanel\Assets-Adminpanel\Teacher_Photos\20180320060833.jpg" />
     <Content Include="Areas\Adminpanel\Assets-Adminpanel\Teacher_Photos\default-photo.png" />
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\img\favicon.png" />
     <Content Include="assets\img\logo.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -412,6 +416,17 @@
     <Content Include="Areas\Adminpanel\Views\Students\Details.cshtml" />
     <Content Include="Areas\Adminpanel\Views\Students\Edit.cshtml" />
     <Content Include="Areas\Adminpanel\Views\Students\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\GroupTypes\Create.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\GroupTypes\Edit.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\GroupTypes\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\GroupSchedule\Create.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\GroupSchedule\Edit.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\GroupSchedule\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\LessonTimes\Create.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\LessonTimes\Delete.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\LessonTimes\Details.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\LessonTimes\Edit.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\LessonTimes\Index.cshtml" />
     <None Include="Properties\PublishProfiles\CodeAcademyAttendanceSystem - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

@@ -139,14 +139,15 @@
                     success: function (response) {
                         if (response.result != "student_deleted") {
                             alert("C92475 : Xəta baş verdi!");
+                        } else {
+                            $("#student_" + student_id).hide("slow");
+                            setTimeout(function () {
+                                $("#student_" + student_id).remove();
+                            }, 1500);
                         }
+                        $('#accept_deleting_modal').modal('toggle');
                     }
                 });
-                $('#accept_deleting_modal').modal('toggle');
-                $("#student_" + student_id).hide("slow");
-                setTimeout(function () {
-                    $("#student_" + student_id).remove();
-                }, 1500);
             }
     </script>
 }

@@ -7,7 +7,7 @@
 
     <div id="content">
         <div id="content-header">
-            <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "Teachers", new { Area="Adminpanel"})" title="Müəllim Redaktə Et / Sil" class="tip-bottom"><i class="icon-user"></i> Müəllim Redaktə Et / Sil</a></div>
+            <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "Teachers", new { Area="Adminpanel"})" title="Müəllim Redaktə Et / Sil" class="tip-bottom"><i class="icon-briefcase"></i> Müəllim Redaktə Et / Sil</a></div>
         </div>
         <div class="container-fluid">
             <hr>
@@ -142,14 +142,16 @@
                     success: function (response) {
                         if (response.result != "teacher_deleted") {
                             alert("C12357 : Xəta baş verdi!");
+                        } else {
+                            $("#teacher_" + teacher_id).hide("slow");
+                            setTimeout(function () {
+                                $("#teacher_" + teacher_id).remove();
+                            }, 1500);
                         }
+                        $('#accept_deleting_modal').modal('toggle');
                     }
                 });
-                $('#accept_deleting_modal').modal('toggle');
-                $("#teacher_" + teacher_id).hide("slow");
-                setTimeout(function () {
-                    $("#teacher_" + teacher_id).remove();
-                }, 1500);
+                
             }
         </script>
     }

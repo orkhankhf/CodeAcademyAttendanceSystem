@@ -12,7 +12,7 @@ using CodeAcademyAttendanceSystem.Models.PasswordSecurity;
 
 namespace CodeAcademyAttendanceSystem.Areas.Adminpanel.Controllers
 {
-    //[AdminpanelLoginFilter]
+    [AdminpanelLoginFilter]
     public class StudentsController : Controller
     {
         private CodeAcademyAttendanceSystem_dbEntities db = new CodeAcademyAttendanceSystem_dbEntities();

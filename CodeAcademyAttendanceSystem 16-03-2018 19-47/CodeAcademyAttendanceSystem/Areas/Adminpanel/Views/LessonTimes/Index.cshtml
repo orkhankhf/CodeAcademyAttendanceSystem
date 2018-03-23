@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CodeAcademyAttendanceSystem.Models.Lesson_Times>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.lesson_times_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lesson_times_start_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lesson_times_end_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_Schedule.group_schedule_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.lesson_times_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lesson_times_start_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lesson_times_end_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_Schedule.group_schedule_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.lesson_times_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.lesson_times_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.lesson_times_id })
+        </td>
+    </tr>
+}
+
+</table>

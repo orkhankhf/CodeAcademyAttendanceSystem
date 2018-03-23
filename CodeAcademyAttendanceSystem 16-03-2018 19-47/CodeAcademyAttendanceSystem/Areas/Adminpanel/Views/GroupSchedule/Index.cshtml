@@ -1,0 +1,123 @@
+﻿@model IEnumerable<CodeAcademyAttendanceSystem.Models.Group_Schedule>
+
+@{
+    ViewBag.Title = "Dərs Günü Redaktə Et / Sil";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
+}
+
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "GroupSchedule", new { Area="Adminpanel"})" title="Dərs Günü Redaktə Et / Sil" class="tip-bottom"><i class="icon-calendar"></i> Dərs Günü Redaktə Et / Sil</a></div>
+    </div>
+    <div class="container-fluid">
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-th"></i></span>
+                        <h5>Dərs Günləri</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>Dərs Gününün Adı</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr id="group_schedule_@item.group_schedule_id">
+                                        <td class="td-center">
+                                            @Html.DisplayFor(modelItem => item.group_schedule_name)
+                                        </td>
+                                        <td class="td-center">
+                                            @Html.ActionLink("Redaktə Et", "Edit", new { id = item.group_schedule_id }, new { @class = "btn btn-primary btn-small" })
+                                            <button class="btn btn-danger btn-small" data-toggle="modal" data-target="#accept_deleting_modal" id="@item.group_schedule_id" onclick="deletion_warning(this.id, '@item.group_schedule_name')">Sil</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        @* Aşağıda ajax request göndərəndə tokeni burdan götürürəm *@
+                        @using (Html.BeginForm(null, null, FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="accept_deleting_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-md-12 text-center text-danger">
+                    <span id="deletion_warning" class="lead"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Yox</button>
+                <button type="button" onclick="delete_group_schedule()" class="btn btn-danger">Hə</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/uniform.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/select2.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-media.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/font-awesome/css/font-awesome.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+}
+@section scripts{
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.ui.custom.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.uniform.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/select2.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.tables.js"></script>
+    <script>
+            group_schedule_id = 0;
+            function deletion_warning(id, group_types_name) {
+                group_schedule_id = id;
+                $("#deletion_warning").text(group_types_name + " adlı dərs gününü silmək istədiyinizdən əminsiniz?");
+            }
+            function delete_group_schedule() {
+                var token = $('input[name="__RequestVerificationToken"]').val();
+                var url = '@Url.Action("DeleteConfirmed", "GroupSchedule", new { id = "-1" })';
+                url = url.replace("-1", group_schedule_id);
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: {
+                        __RequestVerificationToken: token
+                    },
+                    success: function (response) {
+                        if (response.result != "group_schedule_deleted") {
+                            alert("C11687 : Xəta baş verdi!");
+                        } else {
+                            $("#group_schedule_" + group_schedule_id).hide("slow");
+                            setTimeout(function () {
+                                $("#group_schedule_" + group_schedule_id).remove();
+                            }, 1500);
+                        }
+                        $('#accept_deleting_modal').modal('toggle');
+                    }
+                });
+
+            }
+    </script>
+}

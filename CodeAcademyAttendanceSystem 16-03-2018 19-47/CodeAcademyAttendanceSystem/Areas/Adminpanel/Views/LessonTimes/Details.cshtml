@@ -1,0 +1,51 @@
+﻿@model CodeAcademyAttendanceSystem.Models.Lesson_Times
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lesson_Times</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.lesson_times_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lesson_times_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lesson_times_start_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lesson_times_start_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lesson_times_end_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lesson_times_end_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_Schedule.group_schedule_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_Schedule.group_schedule_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.lesson_times_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

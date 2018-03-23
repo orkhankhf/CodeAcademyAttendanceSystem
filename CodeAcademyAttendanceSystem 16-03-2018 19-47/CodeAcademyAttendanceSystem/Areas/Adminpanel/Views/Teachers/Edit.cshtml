@@ -8,7 +8,7 @@
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "Teachers", new { Area="Adminpanel"})" title="Müəllim Redaktə Et / Sil" class="tip-bottom"><i class="icon-user"></i> Müəllim Redaktə Et / Sil</a> <a href="@Url.Action("Edit", "Teachers", new { Area="Adminpanel", id=@Model.teacher_id})" title="@Model.teacher_name  @Model.teacher_surname" class="tip-bottom"><i class="icon-user"></i> @Model.teacher_name @Model.teacher_surname</a></div>
+        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "Teachers", new { Area="Adminpanel"})" title="Müəllim Redaktə Et / Sil" class="tip-bottom"><i class="icon-briefcase"></i> Müəllim Redaktə Et / Sil</a> <a href="@Url.Action("Edit", "Teachers", new { Area="Adminpanel", id=@Model.teacher_id})" title="@Model.teacher_name  @Model.teacher_surname" class="tip-bottom"><i class="icon-user"></i> @Model.teacher_name @Model.teacher_surname</a></div>
     </div>
     <!--End-breadcrumbs-->
     <div class="container-fluid">
@@ -114,6 +114,7 @@
                     }
                 </div>
             </div>
+        </div>
     </div>
 </div>
 @section styles{
