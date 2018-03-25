@@ -64,6 +64,9 @@ namespace CodeAcademyAttendanceSystem.Controllers
                 AreaName = "Teacher";
             }
 
+            //Class'ın hansı məqsədlə istifadə olunduğunu SetGroupsStatusByDate.cs faylında yazmışam.
+            SetGroupsStatusByDate test = new SetGroupsStatusByDate();
+            test.Run();
 
             return RedirectToAction("Index", "Dashboard", new { Area = AreaName });
         }

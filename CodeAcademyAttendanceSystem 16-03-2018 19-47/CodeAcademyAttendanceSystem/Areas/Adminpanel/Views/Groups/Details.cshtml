@@ -1,0 +1,147 @@
+﻿@model CodeAcademyAttendanceSystem.Models.Groups
+
+@{
+    ViewBag.Title = @Model.group_name + " Grupu Haqqında Ətraflı Məlumat";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
+}
+
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "Groups", new { Area="Adminpanel"})" title="Grup Redaktə Et / Sil" class="tip-bottom"><i class="icon-group"></i> Grup Redaktə Et / Sil</a> <a href="@Url.Action("Details", "Groups", new { Area="Adminpanel", id=Model.group_id})" title="@Model.group_name Grupu Haqqında Ətraflı Məlumat" class="tip-bottom"><i class="icon-group"></i> @Model.group_name Grupu Haqqında Ətraflı Məlumat</a></div>
+    </div>
+    <div class="container-fluid">
+        <hr>
+        <div class="row-fluid">
+            <div class="span6">
+                <table class="custom_blue_table table table-hover table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Ad</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.group_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Başlama Tarixi</th>
+                            <td>
+                                @Model.group_start_date.Value.ToString("dd MMMM yyyy")
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Bitmə Tarixi</th>
+                            <td>
+                                @Model.group_end_date.Value.ToString("dd MMMM yyyy")
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Dərs Günü</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.Lesson_Times.Group_Schedule.group_schedule_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Dərs Saatı</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.Lesson_Times.lesson_times_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Müəllim</th>
+                            <td>
+                                @Model.Teachers.teacher_name  @Model.Teachers.teacher_surname
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Növ</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.Group_Types.group_types_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Dərslər</th>
+                            <td>
+                                @{
+                                    if (Model.group_status == true)
+                                    {
+                                        <span>Davam Edir</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Başa Çatıb</span>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                        <tr class="disable_hover">
+                            <th>Grupdakı Tələbələr</th>
+                            <td>
+                                @{
+                                    if (Model.Students.Count > 0)
+                                    {
+                                        <table class="table_inside_table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Ad</th>
+                                                    <th>Soyad</th>
+                                                    <th>Hesab</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.Students.Where(s => s.student_status == true).OrderByDescending(g => g.student_name))
+                                                {
+                                                    <tr>
+                                                        <td>@item.student_name</td>
+                                                        <td>@item.student_surname</td>
+                                                        <td>
+                                                            @{
+                                                                if (item.student_status == true)
+                                                                {
+                                                                    <span>Açıq</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span>Bağlı</span>
+                                                                }
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+
+                                    }
+                                    else
+                                    {
+                                        <p>Bu grupda təhsil alan tələbə yoxdur.</p>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/uniform.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/select2.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-media.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/font-awesome/css/font-awesome.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+}
+@section scripts{
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.ui.custom.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.uniform.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/select2.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.tables.js"></script>
+}

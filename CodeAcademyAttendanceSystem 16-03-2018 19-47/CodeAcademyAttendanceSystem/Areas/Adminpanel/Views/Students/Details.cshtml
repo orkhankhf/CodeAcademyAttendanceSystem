@@ -125,7 +125,7 @@
                                         @foreach (var item in Model.Students_Attendance.Where(a=>a.students_attendance_student_id == Model.student_id).OrderByDescending(g=>g.students_attendance_date))
                                         {
                                             <tr>
-                                                <td>@item.students_attendance_date.Value.ToShortDateString()</td>
+                                                <td>@item.students_attendance_date.Value.ToString("dd MMMM yyyy")</td>
                                                 @if(item.students_attendance_status == true)
                                                 {
                                                     <td>

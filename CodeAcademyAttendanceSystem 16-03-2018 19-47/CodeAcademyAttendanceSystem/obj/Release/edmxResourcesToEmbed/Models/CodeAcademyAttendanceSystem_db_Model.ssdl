@@ -26,7 +26,7 @@
       <PropertyRef Name="group_id" />
     </Key>
     <Property Name="group_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="group_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="group_name" Type="nvarchar" MaxLength="25" />
     <Property Name="group_start_date" Type="date" />
     <Property Name="group_end_date" Type="date" />
     <Property Name="group_lesson_times_id" Type="int" />

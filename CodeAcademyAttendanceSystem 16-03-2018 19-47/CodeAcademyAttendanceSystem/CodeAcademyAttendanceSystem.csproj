@@ -168,8 +168,10 @@
     <Compile Include="Areas\Adminpanel\AdminpanelAreaRegistration.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\GroupScheduleController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\GroupsController.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\GroupTypesController.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\LessonTimesController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\SettingsController.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\StudentsController.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\TeachersController.cs" />
     <Compile Include="Areas\Teacher\Controllers\DashboardController.cs" />
@@ -220,6 +222,7 @@
     <Compile Include="Models\Role_Types.cs">
       <DependentUpon>CodeAcademyAttendanceSystem_db_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SetGroupsStatusByDate.cs" />
     <Compile Include="Models\Students.cs">
       <DependentUpon>CodeAcademyAttendanceSystem_db_Model.tt</DependentUpon>
     </Compile>
@@ -425,6 +428,11 @@
     <Content Include="Areas\Adminpanel\Views\LessonTimes\Create.cshtml" />
     <Content Include="Areas\Adminpanel\Views\LessonTimes\Edit.cshtml" />
     <Content Include="Areas\Adminpanel\Views\LessonTimes\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Settings\Edit.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Groups\Create.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Groups\Details.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Groups\Edit.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Groups\Index.cshtml" />
     <None Include="Properties\PublishProfiles\CodeAcademyAttendanceSystem - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

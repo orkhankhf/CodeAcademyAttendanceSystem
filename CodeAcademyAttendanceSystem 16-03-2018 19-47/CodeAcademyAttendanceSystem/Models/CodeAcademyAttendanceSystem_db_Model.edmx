@@ -31,7 +31,7 @@
             <PropertyRef Name="group_id" />
           </Key>
           <Property Name="group_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="group_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="group_name" Type="nvarchar" MaxLength="25" />
           <Property Name="group_start_date" Type="date" />
           <Property Name="group_end_date" Type="date" />
           <Property Name="group_lesson_times_id" Type="int" />
@@ -376,7 +376,7 @@
             <PropertyRef Name="group_id" />
           </Key>
           <Property Name="group_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="group_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="group_name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="group_start_date" Type="DateTime" Precision="0" />
           <Property Name="group_end_date" Type="DateTime" Precision="0" />
           <Property Name="group_lesson_times_id" Type="Int32" />

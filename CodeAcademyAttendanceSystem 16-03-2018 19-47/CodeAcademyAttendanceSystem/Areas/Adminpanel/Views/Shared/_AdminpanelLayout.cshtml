@@ -39,8 +39,8 @@
                     <li><a class="sTrash" title="" href="#"><i class="icon-trash"></i> trash</a></li>
                 </ul>
             </li>
-            <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-            <li class=""><a title="" href="@Url.Action("Index","Login", new { Area = ""})"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+            <li class=""><a title="" href="@Url.Action("Edit", "Settings", new { id="1"})"><i class="icon icon-cog"></i> <span class="text">Ayarlar</span></a></li>
+            <li class=""><a title="" href="@Url.Action("Index","Login", new { Area = ""})"><i class="icon icon-share-alt"></i> <span class="text">Çıxış</span></a></li>
         </ul>
     </div>
     <!--close-top-Header-menu-->
@@ -88,6 +88,13 @@
                 <ul>
                     <li><a href="@Url.Action("Create", "LessonTimes", new { Area="Adminpanel"})">Dərs Saatı Əlavə Et</a></li>
                     <li><a href="@Url.Action("Index", "LessonTimes", new { Area="Adminpanel"})">Dərs Saatı Redaktə Et / Sil</a></li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="icon icon-group"></i> <span>Gruplar</span> <span class="icon-sort-down icon-down"></span></a>
+                <ul>
+                    <li><a href="@Url.Action("Create", "Groups", new { Area="Adminpanel"})">Grup Əlavə Et</a></li>
+                    <li><a href="@Url.Action("Index", "Groups", new { Area="Adminpanel"})">Grup Redaktə Et / Sil</a></li>
                 </ul>
             </li>
         </ul>
