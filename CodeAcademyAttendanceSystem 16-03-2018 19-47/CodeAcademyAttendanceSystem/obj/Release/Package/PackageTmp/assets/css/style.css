@@ -1,0 +1,95 @@
+﻿/* common classes */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+.color_white{
+    color: white;
+}
+.control-group.required .control-label:after {
+    color: #e20000;
+    content: "*";
+    position: absolute;
+    margin-left: 5px;
+    font-size: 15px;
+    margin-top: 3px;
+}
+.td-center {
+    text-align: center !important;
+}
+.table_inside_table tr, .table_inside_table th, .table_inside_table td, .table_inside_table {
+    border-collapse: collapse !important;
+}
+.table_inside_table {
+    margin: 0px;
+    background: #08c;
+    color: white;
+    display: inline-block;
+    overflow: hidden;
+}
+.table_inside_table th {
+    border-bottom: 1px solid white;
+}
+.custom_blue_table, .custom_blue_table th {
+    margin-top: 20px;
+    background: #08c;
+    color: white;
+    font-size: 12px;
+}
+.custom_blue_table tr:hover > th, .custom_blue_table tr:hover > td {
+    background: white !important;
+    color: #08c !important;
+}
+.custom_blue_table .disable_hover:hover > th, .custom_blue_table .disable_hover:hover > td {
+    background: #08c !important;
+    color: white !important;
+}
+.hidden_date_value_for_sorting{
+    display: none;
+}
+
+
+
+
+
+
+
+/* Login > SetNewPassword */
+.set_password_form{
+    border: 0px !important;
+}
+
+/* Adminpanel > Dashboard */
+.icon-down {
+    float: right;
+    font-size: 18px;
+    position: relative;
+    bottom: 5px;
+    height: 25px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+/* Adminpanel > Teachers > Create */
+.custom_file_input{
+    display: none !important;
+}
+#basic_validate .help-inline{
+    color: darkred !important;
+    font-size: 13px !important;
+}
+
+/* Adminpanel > Students > Details */
+.student_attendance_table .icon-ok {
+    color: lawngreen;
+}
+.student_attendance_table .icon-remove {
+    color: darkred;
+}
+.open_attendance_table_btn{
+    display: block;
+    width: 100% !important; 
+}

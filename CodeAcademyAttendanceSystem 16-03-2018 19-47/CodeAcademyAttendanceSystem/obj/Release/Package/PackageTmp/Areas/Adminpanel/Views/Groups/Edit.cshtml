@@ -1,0 +1,148 @@
+﻿@model CodeAcademyAttendanceSystem.Models.Groups
+
+@{
+    ViewBag.Title = "Grup Məlumatlarını Redaktə Et";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
+}
+
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "Groups", new { Area="Adminpanel"})" title="Grup Redaktə Et / Sil" class="tip-bottom"><i class="icon-group"></i> Grup Redaktə Et / Sil</a> <a href="@Url.Action("Edit", "Groups", new { Area="Adminpanel", id=@Model.group_id})" title="@Model.group_name" class="tip-bottom"><i class="icon-group"></i> @Model.group_name</a></div>
+    </div>
+    <!--End-breadcrumbs-->
+    <div class="container-fluid">
+        <hr />
+        <div class="row-fluid">
+            <div class="span6">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <h5>Grup Məlumatları</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        @using (Html.BeginForm("Edit", "Groups", new { Area = "Adminpanel" }, FormMethod.Post, new { @class = "form-horizontal", name = "basic_validate", id = "basic_validate", novalidate = "novalidate" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            /*Aşağıda müəllimin id adresi mütləq tutulmalıdır*/
+                            @Html.HiddenFor(model => model.group_id)
+                            <div class="control-group required">
+                                <label class="control-label">Ad </label>
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.group_name, new { htmlAttributes = new { @class = "span11", minlength = "2", maxlength = "25", required = "required" } })
+                                </div>
+                            </div>
+                            <div class="control-group required">
+                                <label class="control-label">Başlama Tarixi </label>
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.group_start_date, new { htmlAttributes = new { @class = "span11", type = "date", required = "required" } })
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">Bitmə Tarixi </label>
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.group_end_date, new { htmlAttributes = new { @class = "span11", type = "date", required = "required" } })
+                                </div>
+                            </div>
+
+                            <div class="control-group required">
+                                <label class="control-label">Dərs Günü </label>
+                                <div class="controls">
+                                    @Html.DropDownList("group_schedule_id", null, htmlAttributes: new { @class = "form-control span11", onchange = "GetLessonTimes(this.value)", required = "required" })
+                                </div>
+                            </div>
+
+                            <div class="control-group required">
+                                <label class="control-label">Dərs Saatı </label>
+                                <div class="controls">
+                                    @Html.DropDownList("group_lesson_times_id", null, " -- Dərs Günü Seçilməyib --", htmlAttributes: new { @class = "form-control span11", id = "lesson_times_select", required = "required" })
+                                </div>
+                            </div>
+
+                            <div class="control-group required">
+                                <label class="control-label">Müəllim </label>
+                                <div class="controls">
+                                    @Html.DropDownList("group_teacher_id", null, htmlAttributes: new { @class = "form-control span11", required = "required" })
+                                </div>
+                            </div>
+
+                            <div class="control-group required">
+                                <label class="control-label">Növ </label>
+                                <div class="controls">
+                                    @Html.DropDownList("group_group_type_id", null, htmlAttributes: new { @class = "form-control span11", required = "required" })
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="controls">
+                                    <input type="submit" value="Yadda Saxla" class="btn btn-success" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/uniform.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/select2.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-media.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/font-awesome/css/font-awesome.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+}
+@section scripts {
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.ui.custom.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.uniform.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/select2.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.validate.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.form_validation.js"></script>
+
+    <script>
+
+        var check_group_schedule_select = $("select#group_schedule_id").val();
+        $("input#group_start_date").val("@Model.group_start_date.Value.ToString("yyyy-MM-dd")");
+        $("input#group_end_date").val("@Model.group_end_date.Value.ToString("yyyy-MM-dd")");
+
+        //Grupun dərs günü seçilən anda Groups controllerinin GetLessonTimes actionundan həmin...
+        //dərs gününə aid dərs saatlarını gətirir select tag'na doldurur.
+        function GetLessonTimes(schedule_id) {
+            var url = "@Url.Action("GetLessonTimes","Groups", new { id = "-1" })";
+            url = url.replace("-1", schedule_id);
+            var token = $('input[name="__RequestVerificationToken"]').val();
+            $.ajax({
+                url: url,
+                data: { __RequestVerificationToken: token },
+                cache: false,
+                type: "POST",
+                success: function (data) {
+                    if (check_group_schedule_select != $("select#group_schedule_id").val()) {
+                        $("#s2id_lesson_times_select > .select2-choice span").text("");
+                    }
+                    markup = ""
+                    for (var x = 0; x < data.length; x++) {
+                        markup += "<option value=" + data[x].Value + ">" + data[x].Text + "</option>";
+                    }
+                    $("#lesson_times_select").html(markup).show();
+                    $("select#lesson_times_select").hide()
+                },
+                error: function (reponse) {
+                    alert("error : " + reponse);
+                }
+            });
+        }
+        //Səhifə hazır olan kimi seçili olan dərs gününə aid dərs saatları gətirilir.
+        $(document).ready(GetLessonTimes($("select#group_schedule_id").val()));
+    </script>
+}

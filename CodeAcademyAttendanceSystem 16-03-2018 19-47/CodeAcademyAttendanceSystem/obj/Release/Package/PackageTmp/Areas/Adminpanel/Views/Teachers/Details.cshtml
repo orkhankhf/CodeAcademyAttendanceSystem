@@ -1,0 +1,142 @@
+﻿@model CodeAcademyAttendanceSystem.Models.Teachers
+
+@{
+    ViewBag.Title = @Model.teacher_name + " " + @Model.teacher_surname + " " + "Haqqında Ətraflı Məlumat";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
+}
+
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "Teachers", new { Area="Adminpanel"})" title="Müəllim Redaktə Et / Sil" class="tip-bottom"><i class="icon-user"></i> Müəllim Redaktə Et / Sil</a> <a href="@Url.Action("Details", "Teachers", new { Area="Adminpanel", id=Model.teacher_id})" title="@Model.teacher_name @Model.teacher_surname Haqqında Ətraflı Məlumat" class="tip-bottom"><i class="icon-user"></i> @Model.teacher_name @Model.teacher_surname Haqqında Ətraflı Məlumat</a></div>
+    </div>
+    <div class="container-fluid">
+        <hr>
+        <div class="row-fluid">
+            <div class="span6">
+                @{
+                    if (Model.teacher_photo == null)
+                    {
+                        <img src="~/Areas/Adminpanel/Assets-Adminpanel/Teacher_Photos/default-photo.png" width="130px" />
+                    }
+                    else
+                    {
+                        <img src="~/Areas/Adminpanel/Assets-Adminpanel/Teacher_Photos/@Model.teacher_photo" width="130px" />
+                    }
+                }
+                <table class="custom_blue_table table table-hover table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Ad</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.teacher_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Soyad</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.teacher_surname)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.teacher_email)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Telefon</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.teacher_phone)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Cins</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.Genders.gender_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Rütbə</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.Role_Types.role_types_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Hesab Statusu</th>
+                            <td>
+                                @{ 
+                                    if(Model.teacher_first_login == true)
+                                    {
+                                        <span>Deaktiv</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Aktiv</span>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                        <tr class="disable_hover">
+                            <th>Grup(lar)</th>
+                            <td>
+                                @{ 
+                                    if(Model.Groups.Count > 0)
+                                    {
+                                        <table class="table_inside_table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Adı</th>
+                                                    <th>Növü</th>
+                                                    <th>Dərs Günü</th>
+                                                    <th>Dərs Vaxtı</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.Groups.Where(g=>g.group_status == true).OrderByDescending(g=>g.group_id))
+                                                {
+                                                    <tr>
+                                                        <td>@item.group_name</td>
+                                                        <td>@item.Group_Types.group_types_name</td>
+                                                        <td>@item.Lesson_Times.Group_Schedule.group_schedule_name</td>
+                                                        <td>@item.Lesson_Times.lesson_times_name</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                        
+                                    }
+                                    else
+                                    {
+                                        <p>Bu müəllimin dərs dediyi grup yoxdur.</p>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/uniform.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/select2.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-media.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/font-awesome/css/font-awesome.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+}
+@section scripts{
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.ui.custom.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.uniform.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/select2.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.tables.js"></script>
+}

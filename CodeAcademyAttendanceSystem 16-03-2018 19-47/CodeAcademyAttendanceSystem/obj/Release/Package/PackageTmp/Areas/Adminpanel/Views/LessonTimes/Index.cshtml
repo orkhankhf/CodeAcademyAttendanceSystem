@@ -1,0 +1,134 @@
+﻿@model IEnumerable<CodeAcademyAttendanceSystem.Models.Lesson_Times>
+
+@{
+    ViewBag.Title = "Dərs Saatı Redaktə Et / Sil";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
+}
+
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "LessonTimes", new { Area="Adminpanel"})" title="Dərs Saatı Redaktə Et / Sil" class="tip-bottom"><i class="icon-time"></i> Dərs Saatı Redaktə Et / Sil</a></div>
+    </div>
+    <div class="container-fluid">
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"><i class="icon-th"></i></span>
+                        <h5>Dərs Saatları</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered data-table">
+                            <thead>
+                                <tr>
+                                    <th>Dərs Saatı Adı</th>
+                                    <th>Başlama Vaxtı</th>
+                                    <th>Bitmə Vaxtı</th>
+                                    <th>Dərs Günü</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr id="lesson_times_@item.lesson_times_id">
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lesson_times_name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lesson_times_start_time)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lesson_times_end_time)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Group_Schedule.group_schedule_name)
+                                        </td>
+                                        <td class="td-center">
+                                            @Html.ActionLink("Redaktə Et", "Edit", new { id = item.lesson_times_id }, new { @class = "btn btn-primary btn-small" })
+                                            <button class="btn btn-danger btn-small" data-toggle="modal" data-target="#accept_deleting_modal" id="@item.lesson_times_id" onclick="deletion_warning(this.id, '@item.lesson_times_name (@item.Group_Schedule.group_schedule_name / @item.lesson_times_start_time - @item.lesson_times_end_time)')">Sil</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        @* Aşağıda ajax request göndərəndə tokeni burdan götürürəm *@
+                        @using (Html.BeginForm(null, null, FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="accept_deleting_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-md-12 text-center text-danger">
+                    <span id="deletion_warning" class="lead"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Yox</button>
+                <button type="button" onclick="delete_lesson_time()" class="btn btn-danger">Hə</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/uniform.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/select2.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-media.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/font-awesome/css/font-awesome.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+}
+@section scripts{
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.ui.custom.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.uniform.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/select2.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.tables.js"></script>
+    <script>
+            lesson_times_id = 0;
+            function deletion_warning(id, lesson_times_name) {
+                lesson_times_id = id;
+                $("#deletion_warning").text(lesson_times_name + " adlı dərs saatını silmək istədiyinizdən əminsiniz?");
+            }
+            function delete_lesson_time() {
+                var token = $('input[name="__RequestVerificationToken"]').val();
+                var url = '@Url.Action("DeleteConfirmed", "LessonTimes", new { id = "-1" })';
+                url = url.replace("-1", lesson_times_id);
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: {
+                        __RequestVerificationToken: token
+                    },
+                    success: function (response) {
+                        if (response.result != "lesson_time_deleted") {
+                            alert("C73649 : Xəta baş verdi!");
+                        } else {
+                            $("#lesson_times_" + lesson_times_id).hide("slow");
+                            setTimeout(function () {
+                                $("#lesson_times_" + lesson_times_id).remove();
+                            }, 1500);
+                        }
+                        $('#accept_deleting_modal').modal('toggle');
+                    }
+                });
+            }
+    </script>
+}

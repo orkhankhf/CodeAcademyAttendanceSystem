@@ -433,6 +433,7 @@
     <Content Include="Areas\Adminpanel\Views\Groups\Details.cshtml" />
     <Content Include="Areas\Adminpanel\Views\Groups\Edit.cshtml" />
     <Content Include="Areas\Adminpanel\Views\Groups\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\CodeAcademyAttendanceSystem - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\CodeAcademyAttendanceSystem - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

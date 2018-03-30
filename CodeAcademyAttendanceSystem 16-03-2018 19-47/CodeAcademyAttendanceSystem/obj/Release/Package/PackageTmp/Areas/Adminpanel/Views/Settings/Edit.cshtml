@@ -1,0 +1,77 @@
+﻿@model CodeAcademyAttendanceSystem.Models.System_Settings
+
+@{
+    ViewBag.Title = "Ayarları Redaktə Et";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
+}
+
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Edit", "Settings", new { Area="Adminpanel", id=Model.system_settings_id})" title="Ayarları Redaktə Et" class="tip-bottom"><i class="icon-cog"></i> Ayarları Redaktə Et</a></div>
+    </div>
+    <!--End-breadcrumbs-->
+    <div class="container-fluid">
+        <hr />
+        <div class="row-fluid">
+            <div class="span6">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <h5>Ayarlar</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        @using (Html.BeginForm("Edit", "Settings", new { Area = "Adminpanel" }, FormMethod.Post, new { @class = "form-horizontal", name = "basic_validate", id = "basic_validate", novalidate = "novalidate" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            /*Aşağıda id adresi mütləq tutulmalıdır*/
+                            @Html.HiddenFor(model => model.system_settings_id)
+                            
+                            <div class="control-group required">
+                                <label class="control-label">Academy'nin IP adresi </label>
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.system_settings_academy_ip, new { htmlAttributes = new { @class = "span11", minlength = "10", maxlength = "16", required = "required" } })
+                                </div>
+                            </div>
+
+                            <div class="control-group required">
+                                <label class="control-label">Qr-Code etibarlılıq müddəti (Dəqiqə) </label>
+                                <div class="controls">
+                                    @Html.EditorFor(model => model.system_settings_qr_code_available_minute, new { htmlAttributes = new { @class = "span11", type="number", min="10", max="60", required = "required" } })
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="controls">
+                                    <input type="submit" value="Yadda Saxla" class="btn btn-success" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section styles{
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/uniform.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/select2.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-media.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/font-awesome/css/font-awesome.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+}
+@section scripts {
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.ui.custom.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.uniform.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/select2.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.validate.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.form_validation.js"></script>
+}

@@ -1,0 +1,182 @@
+﻿@model CodeAcademyAttendanceSystem.Models.Students
+
+@{
+    ViewBag.Title = @Model.student_name + " " + @Model.student_surname + " " + "Haqqında Ətraflı Məlumat";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_AdminpanelLayout.cshtml";
+}
+
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="@Url.Action("Index", "Dashboard", new { Area="Adminpanel"})" title="Ana Səhifəyə Get" class="tip-bottom"><i class="icon-home"></i> Ana Səhifə</a>  <a href="@Url.Action("Index", "Students", new { Area="Adminpanel"})" title="Tələbə Redaktə Et / Sil" class="tip-bottom"><i class="icon-user"></i> Tələbə Redaktə Et / Sil</a> <a href="@Url.Action("Details", "Students", new { Area="Adminpanel", id=Model.student_id})" title="@Model.student_name @Model.student_surname Haqqında Ətraflı Məlumat" class="tip-bottom"><i class="icon-user"></i> @Model.student_name @Model.student_surname Haqqında Ətraflı Məlumat</a></div>
+    </div>
+    <div class="container-fluid">
+        <hr>
+        <div class="row-fluid">
+            <div class="span6">
+                <table class="custom_blue_table table table-hover table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Ad</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.student_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Soyad</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.student_surname)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Ata Adı</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.student_father_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.student_email)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Telefon</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.student_phone)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Telefon Cihazın ID</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.student_device_id)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Cins</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.Genders.gender_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Grup</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.Groups.group_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Dərs Günü</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.Groups.Lesson_Times.Group_Schedule.group_schedule_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Dərs Vaxtı</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => modelItem.Groups.Lesson_Times.lesson_times_name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Hesab Statusu</th>
+                            <td>
+                                @{
+                                    if (Model.student_first_login == true)
+                                    {
+                                        <span>Deaktiv</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Aktiv</span>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Hesab</th>
+                            <td>
+                                @{
+                                    if (Model.student_status == true)
+                                    {
+                                        <span>Açıq</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Bağlı</span>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                        <tr class="disable_hover">
+                            <th>Davamiyyət</th>
+                            <td>
+                                @{ 
+                                    var students_attendance_list = Model.Students_Attendance.Where(a => a.students_attendance_student_id == Model.student_id);
+                                    var nisbet = (((double)students_attendance_list.Where(a => a.students_attendance_status == true).Count() * 100) / (double)students_attendance_list.Count()).ToString("#.##");
+                                }
+                                <p>Toplam @students_attendance_list.Count() dərsdən @students_attendance_list.Where(a=>a.students_attendance_status == true).Count() dərsdə iştirak edib.</p>
+                                <p>Nisbət: (100 / @nisbet)</p>
+                                <table class="table_inside_table student_attendance_table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Tarix</th>
+                                            <th>İştirak</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Students_Attendance.Where(a=>a.students_attendance_student_id == Model.student_id).OrderByDescending(g=>g.students_attendance_date))
+                                        {
+                                            <tr>
+                                                <td>@item.students_attendance_date.Value.ToString("dd MMMM yyyy")</td>
+                                                @if(item.students_attendance_status == true)
+                                                {
+                                                    <td>
+                                                        <i class="icon-ok"></i>
+                                                    </td>
+                                                }
+                                                else {
+                                                    <td>
+                                                        <i class="icon-remove"></i>
+                                                    </td>
+                                                }
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <button class="btn btn-info open_attendance_table_btn">Tam Siyahıya Bax</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/uniform.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/select2.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-style.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/css/matrix-media.css" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets-Adminpanel/font-awesome/css/font-awesome.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/assets/css/style.css" />
+}
+@section scripts{
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.ui.custom.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.uniform.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/select2.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.js"></script>
+    <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.tables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".student_attendance_table").hide();
+            $(".open_attendance_table_btn").click(function () {
+                $(".student_attendance_table").slideToggle("slow");
+            });
+        });
+    </script>
+}
