@@ -175,13 +175,15 @@
     <Compile Include="Areas\Adminpanel\Controllers\StudentsController.cs" />
     <Compile Include="Areas\Adminpanel\Controllers\TeachersController.cs" />
     <Compile Include="Areas\Teacher\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Teacher\Controllers\PartialsController.cs" />
+    <Compile Include="Areas\Teacher\Controllers\QrCodeController.cs" />
+    <Compile Include="Areas\Teacher\Models\GroupAttendanceList.cs" />
     <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
     <Compile Include="Filters\AdminpanelLoginFilter.cs" />
     <Compile Include="Filters\SetNewPasswordFilter.cs" />
+    <Compile Include="Filters\TeacherLoginFilter.cs" />
     <Compile Include="Models\PasswordSecurity.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -433,6 +435,8 @@
     <Content Include="Areas\Adminpanel\Views\Groups\Details.cshtml" />
     <Content Include="Areas\Adminpanel\Views\Groups\Edit.cshtml" />
     <Content Include="Areas\Adminpanel\Views\Groups\Index.cshtml" />
+    <Content Include="Areas\Teacher\Views\Shared\_TeacherLayout.cshtml" />
+    <Content Include="Areas\Teacher\Views\Partials\TeacherGroups.cshtml" />
     <None Include="Properties\PublishProfiles\CodeAcademyAttendanceSystem - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\CodeAcademyAttendanceSystem - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -486,8 +490,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Adminpanel\Models\" />
-    <Folder Include="Areas\Teacher\Models\" />
-    <Folder Include="Areas\Teacher\Views\Shared\" />
+    <Folder Include="Areas\Teacher\Views\QrCode\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

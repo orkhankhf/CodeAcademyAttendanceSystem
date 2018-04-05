@@ -48,7 +48,6 @@ namespace CodeAcademyAttendanceSystem.Controllers
 
             Role_Types teacher_role = db.Role_Types.Where(r => r.role_types_id == check_teacher_email.teacher_role_types_id).FirstOrDefault();
 
-            
             if(teacher_role.role_types_name == "Admin")
             {
                 Session["LoggedAdminId"] = check_teacher_email.teacher_id;
