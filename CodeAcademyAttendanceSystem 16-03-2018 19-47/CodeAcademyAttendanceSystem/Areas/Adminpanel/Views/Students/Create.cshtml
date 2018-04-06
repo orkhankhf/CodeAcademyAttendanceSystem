@@ -49,6 +49,12 @@
                                 <label class="control-label">E-mail </label>
                                 <div class="controls">
                                     @Html.EditorFor(model => model.student_email, new { htmlAttributes = new { @class = "span11", maxlength = "150", required = "required", type = "email" } })
+                                    @{ 
+                                        if(ViewBag.EmailExist != null)
+                                        {
+                                            <span class="span11 text-warning td-center">@ViewBag.EmailExist</span>
+                                        }
+                                    }
                                 </div>
                             </div>
 

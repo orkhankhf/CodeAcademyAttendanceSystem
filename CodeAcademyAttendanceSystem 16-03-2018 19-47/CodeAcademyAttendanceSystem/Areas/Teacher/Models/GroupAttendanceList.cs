@@ -11,5 +11,6 @@ namespace CodeAcademyAttendanceSystem.Areas.Teacher.Models
         public string StudentName { get; set; }
         public string StudentSurname { get; set; }
         public bool StudentAttendanceStatus { get; set; }
+        public string StudentAttendanceSenderIp { get; set; }
     }
 }

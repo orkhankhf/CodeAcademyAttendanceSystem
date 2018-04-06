@@ -28,26 +28,19 @@ namespace CodeAcademyAttendanceSystem.Areas.Teacher.Controllers
             List<GroupAttendanceList> GroupAttendanceList = (from q in db.Qr_Codes
                                                              join g in db.Groups on q.qr_codes_group_id equals g.group_id
                                                              join s in db.Students on g.group_id equals s.student_group_id
-                                                             where q.qr_codes_group_id == group_id
+                                                             join a in db.Students_Attendance on s.student_id equals a.students_attendance_student_id
+                                                             where q.qr_codes_group_id == group_id && q.qr_codes_date == today && a.students_attendance_date == today
                                                              select new GroupAttendanceList
                                                              {
                                                                  StudentId = s.student_id,
                                                                  StudentName = s.student_name,
                                                                  StudentSurname = s.student_surname,
-                                                                 StudentAttendanceStatus = false
+                                                                 StudentAttendanceStatus = (bool)a.students_attendance_status,
+                                                                 StudentAttendanceSenderIp = a.students_attendance_sender_ip
                                                              }
                                                              ).ToList();
-            string bla = "";
-            foreach (var item in GroupAttendanceList)
-            {
-                Students_Attendance group_attendance = db.Students_Attendance.Where(a => a.students_attendance_date == today && a.students_attendance_student_id == item.StudentId).FirstOrDefault();
-                bool test = Convert.ToBoolean(group_attendance.students_attendance_status);
-                item.StudentAttendanceStatus = test;
-                bla += item.StudentId + " " + item.StudentAttendanceStatus + "<br>";
-            }
-            return Content(bla);
-            return Json(new { }, JsonRequestBehavior.AllowGet);
 
+            return Json(GroupAttendanceList, JsonRequestBehavior.AllowGet);
         }
     }
 }

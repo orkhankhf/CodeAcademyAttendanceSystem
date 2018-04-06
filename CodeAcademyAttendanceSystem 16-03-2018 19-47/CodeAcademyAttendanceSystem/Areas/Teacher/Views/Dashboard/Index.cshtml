@@ -20,7 +20,7 @@
             <div class="widget-content">
                 <div class="row-fluid">
                     <div class="span7">
-                        <table class="table table-bordered table-striped">
+                        <table id="attendance_table" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>Ad</th>
@@ -30,12 +30,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Mehemmed Mehemmedli</td>
-                                    <td>Mehemmed</td>
-                                    <td>123456789</td>
-                                    <td>dsf 05s4df </td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -82,11 +77,15 @@
     <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/jquery.dataTables.min.js"></script>
     <script src="~/Areas/Adminpanel/Assets-Adminpanel/js/matrix.tables.js"></script>
     <script>
+        var ipAddress, statusIcon;
+        var group_id = 0;
+
         function rand(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        function generate_qr_code(group_id) {
+        function generate_qr_code(_group_id) {
+            group_id = _group_id;
             $(".qr_code_image").attr("src", "");
 
             var tet = "@Url.Action("Generate", "QrCode", new {group_id = "-1", qr_code_value = "-2" })";
@@ -98,16 +97,35 @@
             tet = tet.replace("amp;", "");
 
             $(".qr_code_image").attr("src", tet);
+
+            CheckClassAttendance();
         }
-        setInterval(function () {
-            $.ajax({  
-                type: 'GET',  
-                url: '@Url.Action("CheckStudentAttendanceList", "Dashboard", new { group_id = 20})',
-                success: function(data) {  
-                    alert(data); 
-                },  
-                error: function(data) {}  
-            });  
-        }, 1500)
+        function CheckClassAttendance() {
+            var url = "@Url.Action("CheckStudentAttendanceList", "Dashboard", new { group_id = "-1" })";
+            url = url.replace("-1", group_id);
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (attendanceList) {
+                    $('#attendance_table tbody').empty();
+                    $.each(attendanceList, function (i, item) {
+                        ipAddress = "";
+                        statusIcon = "<i class='icon-remove-sign'></i>";
+                        if (item.StudentAttendanceSenderIp != null) {
+                            ipAddress = item.StudentAttendanceSenderIp;
+                        }
+                        if (item.StudentAttendanceStatus == true) {
+                            statusIcon = "<i class='icon-ok-sign'></i>";
+                        }
+                        var rows = "<tr>" + "<td>" + item.StudentName + "</td>" + "<td>" + item.StudentSurname + "</td>" + "<td>" + ipAddress + "</td>" + "<td>" + statusIcon + "</td>" + "</tr>";
+                        $('#attendance_table tbody').append(rows);
+                    });
+                },
+                error: function (data) { }
+            });
+        }
+        setInterval(CheckClassAttendance(), 2300);
+
     </script>
 }

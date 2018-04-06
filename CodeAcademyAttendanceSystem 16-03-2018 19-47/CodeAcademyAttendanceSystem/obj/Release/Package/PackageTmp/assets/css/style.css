@@ -93,3 +93,22 @@ input[type=number]::-webkit-outer-spin-button {
     display: block;
     width: 100% !important; 
 }
+
+/* Teacher > Dashboard */
+.teacher_page_content {
+    position: absolute !important;
+    top: 0 !important;
+    width: 100% !important;
+}
+#attendance_table .icon-remove-sign{
+    color: red;
+    font-size: 18px;
+}
+#attendance_table .icon-ok-sign {
+    color: green;
+    font-size: 18px;
+}
+/* Partials > TeacherGroups */
+.teacher_page_groups li > a {
+    border-radius: 0px !important;
+}

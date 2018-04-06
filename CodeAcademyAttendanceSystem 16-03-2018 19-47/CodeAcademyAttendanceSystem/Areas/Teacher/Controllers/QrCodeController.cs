@@ -22,6 +22,11 @@ namespace CodeAcademyAttendanceSystem.Areas.Teacher.Controllers
             QrCodeEncodingOptions options = new QrCodeEncodingOptions();
 
             DateTime today = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            TimeSpan time = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
+
+            int limit_minute = Convert.ToInt32(db.System_Settings.FirstOrDefault().system_settings_qr_code_available_minute);
+
+            time = time.Add(new TimeSpan(0, limit_minute, 0));
 
             options = new QrCodeEncodingOptions
             {
@@ -61,7 +66,8 @@ namespace CodeAcademyAttendanceSystem.Areas.Teacher.Controllers
                     qr_codes_date = today,
                     qr_codes_status = true,
                     qr_codes_value = qr_code_value,
-                    qr_codes_group_id = group_id
+                    qr_codes_group_id = group_id,
+                    qr_code_deadline_time = time
                 };
                 db.Qr_Codes.Add(Qr_Code);
 

@@ -100,9 +100,15 @@ input[type=number]::-webkit-outer-spin-button {
     top: 0 !important;
     width: 100% !important;
 }
-
-
+#attendance_table .icon-remove-sign{
+    color: red;
+    font-size: 18px;
+}
+#attendance_table .icon-ok-sign {
+    color: green;
+    font-size: 18px;
+}
 /* Partials > TeacherGroups */
-.teacher_page_groups li > a{
+.teacher_page_groups li > a {
     border-radius: 0px !important;
 }

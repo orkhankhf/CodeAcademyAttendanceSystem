@@ -1,0 +1,14 @@
+﻿@model CodeAcademyAttendanceSystem.Models.Teachers
+
+<ul class="nav nav-pills nav-stacked teacher_page_groups">
+    @{
+        string active = "class='active'";
+
+        foreach (var item in Model.Groups.Where(g=>g.group_status==true).OrderByDescending(g=>g.group_name))
+        {
+            <li><a href="#" onclick="generate_qr_code(this.id)" id="@item.group_id" @active>@item.group_name</a></li>
+            active = "";
+        }
+    }
+</ul>
+
