@@ -80,9 +80,11 @@
         var ipAddress, statusIcon;
         var group_id = 0;
 
+
         function rand(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
+
 
         function generate_qr_code(_group_id) {
             group_id = _group_id;
@@ -100,6 +102,8 @@
 
             CheckClassAttendance();
         }
+
+
         function CheckClassAttendance() {
             var url = "@Url.Action("CheckStudentAttendanceList", "Dashboard", new { group_id = "-1" })";
             url = url.replace("-1", group_id);
@@ -122,10 +126,18 @@
                         $('#attendance_table tbody').append(rows);
                     });
                 },
-                error: function (data) { }
+                error: function (data) {
+                    alert(data);
+                }
             });
         }
-        setInterval(CheckClassAttendance(), 2300);
+
+
+        var interval = setInterval(function () {
+            if (group_id > 0) {
+                CheckClassAttendance();
+            }
+        }, 2000);
 
     </script>
 }

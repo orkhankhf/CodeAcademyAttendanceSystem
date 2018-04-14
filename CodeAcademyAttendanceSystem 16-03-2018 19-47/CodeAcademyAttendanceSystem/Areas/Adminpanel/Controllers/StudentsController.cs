@@ -51,8 +51,16 @@ namespace CodeAcademyAttendanceSystem.Areas.Adminpanel.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "student_id,student_email,student_password,student_name,student_surname,student_father_name,student_phone,student_group_id,student_gender_id,student_device_id,student_first_login,student_status")] Students students)
         {
-            string check_student_email = db.Students.Where(s => s.student_email == students.student_email).FirstOrDefault().student_email;
-            if(check_student_email != null)
+            string check_student_email;
+            try
+            {
+                check_student_email = db.Students.Where(s => s.student_email == students.student_email).FirstOrDefault().student_email;
+            }
+            catch
+            {
+                check_student_email = null;
+            }
+            if (check_student_email != null)
             {
                 ViewBag.EmailExist = "Bu email artıq mövcuddur!";
                 ViewBag.student_gender_id = new SelectList(db.Genders, "gender_id", "gender_name", students.student_gender_id);
