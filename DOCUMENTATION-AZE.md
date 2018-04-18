@@ -1,0 +1,1 @@
+# Fayl tam hazır deyil.
