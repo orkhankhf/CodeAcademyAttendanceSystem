@@ -71,24 +71,14 @@ Parametrləri dəyişdirmək üçün səhifənin yuxarı hissəsindən Ayarlar b
 
 Müəllim ilk dəfə hesabına daxil olan zaman, birdəfəlik şifrə (Code123456) ilə daxil olaraq açılan pəncərədən yeni şifrə təyin edir və növbəti girişlərdə hesabına təyin etdiyi şifrə ilə daxil olur. Müəllim şifrəsini unutduqda Adminə müraciət etməlidir.
 
+Müəllim hesabına daxil olduqda sol tərəfdəki menüdə dərs dediyi grupları görür. Menüdən dərs dediyi grupun adına klik edərək həmin grup üçün o günə aid Qr-Kod yaradır. Bir grup üçün 24 saat ərzində cəmi 1 Qr-Kod yaratmaq mümkündür. Qr-Kod yarandığı andan etibarən, Adminin Parametrlər bölməsindən təyin etdiyi etibarlılıq müddəti ərzində etibarlı olacaq. Tələbələr Qr-Kod etibarlı olduğu müddət ərzində dərsdə iştirak etdiyini təsdiqləyə bilər. Müəllim Qr-Kodu yaratdığı zaman, onu silə və ya müddətini uzada bilməz. Sadəcə menüdən grupun adına klik edərək Qr-Kodun dəyərini (value) dəyişə bilər. Tələbələr Qr-Kodu təsdiq etmək üçün, mütləq internetə Adminin Parametrlər bölməsindən təyin etdiyi IP adresindən daxil olmalıdırlar.
 
+Müəllim grup üçün Qr-Kod yaratdığı zaman, hal-hazırda dərs dediyi grup üçün Qr-Kod yaratdığına diqqət etməlidir.
 
+Məsələn müəllim səhər grupu olan P104 üçün Qr-Kod yaratmaq istədiyi halda səhvən axşam grupu olan P305 üçün Qr-Kod yaratmış olsa, artıq həmin gün axşam P305 grupu üçün Qr-Kod yaradıla bilməz. Belə olan halda da, axşam P305 grupunun tələbələri dərsdə iştirak etdiyini təsdiq edə bilməyəcək. Bu ona görədir ki, müəllim Qr-Kodun etibarlılıq müddətinə və ya etibarlılıq müddəti bitmiş Qr-Kodu bərpa edilməsinə müdaxilə edə bilməsin.
 
+Qr-Kod yarandığı anda həmin grupdakı bütün tələbələrin ad və soyadları siyahıda çıxacaqdır. Sinifdə olan və mobil app ilə Qr-Kodu təsdiq edən tələbələrin anlıq olaraq IP adresi və Statusu dəyişəcək.
 
+Müəllim paneldən çıxdıqdan sonra yenidən daxil olaraq həmin gün Qr-Kod yaratdığı gruplara klik edərək tələbələrin məlumatlarını təkrar görə bilər.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+&copy; Orkhan Farajov
