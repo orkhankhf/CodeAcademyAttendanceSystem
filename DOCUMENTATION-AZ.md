@@ -1,5 +1,5 @@
 # İstifadə Təlimatları
-<br><br><br><br>
+<br>
 Tələbə davamiyyət sisteminə admin və müəllim http://codeacademyattendancesystem.azurewebsites.net/ ünvanından giriş edir.
 
 ### Adminlər üçün istifadə təlimatları
