@@ -66,4 +66,29 @@ Grup Redaktə Et / Sil bölməsindən müvafiq grupun məlumatlarının olduğu 
 Parametrlər bölməsindən tələbələrin mobil app ilə hesablarına daxil olub Qr-Kod'u oxumasına icazə verilən IP adresini və dərs vaxtı yaradılan Qr-Kod'un etibarlılır müddətini dəyişdirə bilərsiniz.
 
 Parametrləri dəyişdirmək üçün səhifənin yuxarı hissəsindən Ayarlar bölməsinə daxil olun. ([Link](http://codeacademyattendancesystem.azurewebsites.net/Adminpanel/Settings/Edit/1 "Link")).
-<br><br>
+<br><br><br><br>
+### Müəllimlər üçün istifadə təlimatları
+
+Müəllim ilk dəfə hesabına daxil olan zaman, birdəfəlik şifrə (Code123456) ilə daxil olaraq açılan pəncərədən yeni şifrə təyin edir və növbəti girişlərdə hesabına təyin etdiyi şifrə ilə daxil olur. Müəllim şifrəsini unutduqda Adminə müraciət etməlidir.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
